@@ -11,5 +11,7 @@ namespace Credi_Gestion.Data
         }
 
         public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Prestamo> Prestamo { get; set; }
+        public DbSet<Pagos> Pagos { get; set; }
     }
 }
