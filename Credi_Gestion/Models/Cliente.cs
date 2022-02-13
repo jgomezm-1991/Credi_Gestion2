@@ -6,7 +6,6 @@ namespace Credi_Gestion.Models
 {
     public class Cliente
     {
-
         [Key]
         public int Id { get; set; }
 

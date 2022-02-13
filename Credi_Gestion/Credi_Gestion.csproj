@@ -6,16 +6,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20220212215101_Pagos.cs" />
+    <Compile Remove="Migrations\20220212215101_Pagos.Designer.cs" />
+    <Compile Remove="Migrations\20220212215411_nuevo.cs" />
+    <Compile Remove="Migrations\20220212215411_nuevo.Designer.cs" />
+    <Compile Remove="Migrations\20220213041528_Initial.cs" />
+    <Compile Remove="Migrations\20220213041528_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20220213044058_Initial.cs" />
+    <Compile Remove="Migrations\20220213044058_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20220213044803_Initial.cs" />
+    <Compile Remove="Migrations\20220213044803_Initial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.22" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.22" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-    <Folder Include="Views\Cliente\" />
   </ItemGroup>
 
 </Project>

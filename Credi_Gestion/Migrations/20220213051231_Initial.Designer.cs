@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Credi_Gestion.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20220212215411_nuevo")]
-    partial class nuevo
+    [Migration("20220213051231_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -76,7 +76,7 @@ namespace Credi_Gestion.Migrations
                     b.Property<decimal>("MontoPagado")
                         .HasColumnType("Decimal(12, 2)");
 
-                    b.Property<int>("PrestamoId")
+                    b.Property<int?>("PrestamoId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Saldo")
@@ -99,7 +99,7 @@ namespace Credi_Gestion.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ClienteId")
+                    b.Property<int?>("ClienteId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("FechaReg")
@@ -128,18 +128,14 @@ namespace Credi_Gestion.Migrations
                 {
                     b.HasOne("Credi_Gestion.Models.Prestamo", "Prestamo")
                         .WithMany()
-                        .HasForeignKey("PrestamoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PrestamoId");
                 });
 
             modelBuilder.Entity("Credi_Gestion.Models.Prestamo", b =>
                 {
                     b.HasOne("Credi_Gestion.Models.Cliente", "Cliente")
                         .WithMany()
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ClienteId");
                 });
 #pragma warning restore 612, 618
         }

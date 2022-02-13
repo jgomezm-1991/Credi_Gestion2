@@ -6,6 +6,12 @@ namespace Credi_Gestion.Controllers
     {
         public IActionResult Index()
         {
+
+            return View();
+        }
+
+        public IActionResult GetPrestamosByCliente(int id)
+        {
             return View();
         }
     }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Credi_Gestion.Migrations
 {
-    public partial class Pagos : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,12 +33,12 @@ namespace Credi_Gestion.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ClienteId = table.Column<int>(nullable: false),
                     Monto = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
                     Plazo = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
                     Saldo = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
                     FechaReg = table.Column<DateTime>(nullable: false),
-                    UsuarioRe = table.Column<string>(nullable: true)
+                    UsuarioRe = table.Column<string>(nullable: true),
+                    ClienteId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -48,7 +48,7 @@ namespace Credi_Gestion.Migrations
                         column: x => x.ClienteId,
                         principalTable: "Cliente",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -57,11 +57,11 @@ namespace Credi_Gestion.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PrestamoId = table.Column<int>(nullable: false),
                     MontoPagado = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
                     FechaPago = table.Column<DateTime>(nullable: false),
                     Saldo = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
-                    UsuarioRe = table.Column<string>(nullable: true)
+                    UsuarioRe = table.Column<string>(nullable: true),
+                    PrestamoId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -71,7 +71,7 @@ namespace Credi_Gestion.Migrations
                         column: x => x.PrestamoId,
                         principalTable: "Prestamo",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
