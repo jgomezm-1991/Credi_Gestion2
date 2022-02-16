@@ -14,7 +14,7 @@ namespace Credi_Gestion.Models
 
         [Required(ErrorMessage = "El número de cedula es requerido")]
         [StringLength(100)]
-        [Display(Name = "Cédula")]
+      
         public string Cedula { get; set; }
 
         [Required(ErrorMessage = "La dirección  es requerida")]
@@ -22,12 +22,15 @@ namespace Credi_Gestion.Models
         [Display(Name = "Cédula")]
         public string Direccion { get; set; }
 
+        [StringLength(100)]
+        public string Sexo { get;set;}
+
         [Required(ErrorMessage = "Debe ingresar el número de teléfono")]
-        [Display(Name = "Teléfono")]
+        
         public string Telefono { get; set; }
 
         [Required(ErrorMessage = "Debe ingresar el monto del préstamo")]
-        [Display(Name = "Préstamo")]
+       
         public decimal Prestamo { get; set; }
 
         [Column(TypeName = "decimal(12, 2)")]
@@ -40,7 +43,6 @@ namespace Credi_Gestion.Models
         [Display(Name = "Fecha del registro")]
         public DateTime FechaReg { get; set; }
 
-        [Display(Name = "Usuario que registró")]
         public string UsuarioRe { get; set; }
 
 
