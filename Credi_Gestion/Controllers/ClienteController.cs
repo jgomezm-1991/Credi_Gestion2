@@ -27,22 +27,27 @@ namespace Credi_Gestion.Controllers
             _context = context;
         }
 
-
         public IActionResult NuevoCliente()
+        
         {
             return View();
         }
-        public IActionResult NuevoCliente(Cliente cliente)
+
+        public IActionResult NuevosCliente(Cliente cliente)
         {
             cliente.FechaReg = DateTime.Now;
             _context.Cliente.Add(cliente);
             _context.SaveChanges();
             return RedirectToAction("Clientes");
         }
+
         public IActionResult Clientes()
         {
             List<Cliente> clientes = _context.Cliente.ToList();
             return View(clientes);
         }
+
+
+      
     }
 }

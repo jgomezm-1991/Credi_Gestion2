@@ -14,12 +14,11 @@ namespace Credi_Gestion.Models
 
         [Required(ErrorMessage = "El número de cedula es requerido")]
         [StringLength(100)]
-      
+
         public string Cedula { get; set; }
 
         [Required(ErrorMessage = "La dirección  es requerida")]
         [StringLength(100)]
-        [Display(Name = "Cédula")]
         public string Direccion { get; set; }
 
         [StringLength(100)]

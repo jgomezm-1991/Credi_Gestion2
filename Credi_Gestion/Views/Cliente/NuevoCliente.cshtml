@@ -1,20 +1,18 @@
 ﻿<h1>Ingresar nuevo cliente</h1>
 
-<form asp-action="NuevoCliente">
+<form asp-action="NuevosCliente" style="text-align:center">
+    
     <div class="row">
 
 
-        <div class="col-md-2">
-
-            <label class="col-form-label">Nombres</label>
-
-        </div>
-        <div class="col-md-4">
-
-            <input class="form-control" name="Nombres" type="text" placeholder="Nombres" />
-
+        <div class="col-md-6">
+            <div class=" form-inline">
+                <label class="col-form-label">Nombres</label>
+                <input class="form-control" name="Nombre" type="text" placeholder="Nombres" />
+            </div>           
 
         </div>
+        
         <div class="col-md-2">
 
             <label class="col-form-label">Cédula</label>
@@ -27,9 +25,9 @@
 
         </div>
     </div>
-
+    <br />
     <div class="row">
-        <div class="col-sm-2">
+        <div class="col-md-2">
 
             <label class="col-form-label">Dirección</label>
 
@@ -39,12 +37,9 @@
             <input class="form-control" name="Direccion" type="text" placeholder="Ecriba la Dirección domiciliar" />
 
         </div>
-    </div>
-    <div class="row">
         <div class="col-md-2">
 
             <label class="col-form-label">Teléfono</label>
-            <input class="form-control" name="Telefono" type="text" placeholder="Número Teléfono o Convencional" />
 
         </div>
         <div class="col-md-4">
@@ -52,8 +47,8 @@
 
 
         </div>
-
     </div>
+    <br />
     <div class="row">
         <div class=" col-md-2">
             <label for="selectsexo">Sexo:</label>
@@ -68,11 +63,36 @@
             </select>
 
         </div>
-     
+
+
+        <div class="col-md-2">
+
+            <label class="col-form-label">Préstamo</label>
+
+        </div>
+
+        <div class="col-md-4">
+            <input class="form-control" name="Prestamo" type="text" placeholder="Prestamo" />
+
+        </div>
+
 
     </div>
-    <div class="row"></div>
+    <br />
 
+    <div class="row">
+
+        <div class="col-md-2">
+            <label class="col-form-label"> Saldo</label>
+
+
+        </div>
+        <div class="col-md-4">
+
+            <input class="form-control" name="Saldo" type="text" placeholder="Saldo" />
+        </div>
+    </div>
+    <br />
     <div class="row">
         <div class="col-md-6">
 
@@ -84,7 +104,7 @@
             </div>
         </div>
     </div>
-
+    <
 </form>
 <br />
 
