@@ -1,98 +1,90 @@
 ﻿<h1>Ingresar nuevo cliente</h1>
 
 <form asp-action="NuevosCliente" style="text-align:center">
-    
+    <br />
     <div class="row">
 
 
         <div class="col-md-6">
             <div class=" form-inline">
                 <label class="col-form-label">Nombres</label>
-                <input class="form-control" name="Nombre" type="text" placeholder="Nombres" />
-            </div>           
+                <input class="form-control" name="NombreCliente" type="text" placeholder="Nombres" />
+            </div>
 
         </div>
-        
-        <div class="col-md-2">
-
-            <label class="col-form-label">Cédula</label>
+        <div class="col-md-6">
+            <div class=" form-inline">
+                <label class="col-form-label">Apellidos</label>
+                <input class="form-control" name="Apellidos" type="text" placeholder="Nombres" />
+            </div>
 
         </div>
-        <div class="col-md-4">
 
-            <input class="form-control" name="Cedula" type="text" placeholder="Número de Identificación" />
+    </div>
+    <br />
+    <div class="row">
 
+        <div class="col-md-6">
+            <div class=" form-inline">
+                <label class="col-form-label">Cédula</label>
+                <input class="form-control" name="Cedula" type="text" placeholder="Número de Identificación" />
+            </div>
+        </div>
+        <div class=" col-md-6">
+            <div class=" form-inline">
+
+                <label for="selectGenero">Genero:</label>
+                <select class="form-control" name="Genero" id="selectGenero">
+                    <option>Seleccione</option>
+                    <option>M</option>
+                    <option>F</option>
+                </select>
+            </div>
 
         </div>
     </div>
     <br />
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-6">
+            <div class=" form-inline">
 
-            <label class="col-form-label">Dirección</label>
+                <label class="col-form-label">Dirección</label>
+                <input class="form-control" name="Direccion" type="text" placeholder="Escriba la Dirección domiciliar" />
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class=" form-inline">
+
+                <label class="col-form-label">Teléfono</label>
+                <input class="form-control" name="Telefono" type="text" placeholder="Número Teléfono o Convencional" />
+
+            </div>
 
         </div>
-        <div class="col-md-4">
-
-            <input class="form-control" name="Direccion" type="text" placeholder="Ecriba la Dirección domiciliar" />
-
-        </div>
-        <div class="col-md-2">
-
-            <label class="col-form-label">Teléfono</label>
-
-        </div>
-        <div class="col-md-4">
-            <input class="form-control" name="Telefono" type="text" placeholder="Número Teléfono o Convencional" />
-
-
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class=" col-md-2">
-            <label for="selectsexo">Sexo:</label>
-
-        </div>
-        <div class=" col-md-4">
-
-            <select class="form-control" name="Sexo" id="selectsexo">
-                <option>Seleccione</option>
-                <option>M</option>
-                <option>F</option>
-            </select>
-
-        </div>
-
-
-        <div class="col-md-2">
-
-            <label class="col-form-label">Préstamo</label>
-
-        </div>
-
-        <div class="col-md-4">
-            <input class="form-control" name="Prestamo" type="text" placeholder="Prestamo" />
-
-        </div>
-
 
     </div>
     <br />
 
     <div class="row">
+        <div class=" col-md-6">
+            <div class=" form-inline">
 
-        <div class="col-md-2">
-            <label class="col-form-label"> Saldo</label>
+                <label for="selectEstado">Estado:</label>
+                <select class="form-control" name="Estado" id="selectEstado">
+                    <option>Seleccione</option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+            </div>
 
-
-        </div>
-        <div class="col-md-4">
-
-            <input class="form-control" name="Saldo" type="text" placeholder="Saldo" />
         </div>
     </div>
-    <br />
+
+
+
+
+
     <div class="row">
         <div class="col-md-6">
 
