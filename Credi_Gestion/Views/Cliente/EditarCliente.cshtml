@@ -1,0 +1,112 @@
+﻿
+@model Credi_Gestion.Models.Cliente
+
+
+<h1> Editar Cliente</h1>
+<form asp-action="EditarValorCliente" style="text-align:center">
+    <br />
+    <div class="row">
+
+
+        <div class="col-md-6">
+            <div class=" form-inline">
+                <label class="col-form-label">Nombres</label>
+                <input class="form-control" name="NombreCliente" type="text" value="@Model.NombreCliente" placeholder="Nombres" />
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class=" form-inline">
+                <label class="col-form-label">Apellidos</label>
+                <input class="form-control" name="Apellidos" type="text" value="@Model.Apellidos" placeholder="Nombres" />
+            </div>
+
+        </div>
+
+    </div>
+    <br />
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class=" form-inline">
+                <label class="col-form-label">Cédula</label>
+                <input class="form-control" name="Cedula" type="text" value="@Model.Cedula" placeholder="Número de Identificación" />
+            </div>
+        </div>
+        <div class=" col-md-6">
+            <div class=" form-inline">
+
+                <label for="selectGenero">Género:</label>
+                <select class="form-control" name="Genero"  id="selectGenero">
+                   @{
+                       if(Model.Genero=="M")
+                       {
+                       <option value="M" selected> Masculino</option>
+                       <option value="F">Femenino</option>
+                        }
+                        else
+                        {
+                          <option value="M"> Masculino</option>
+                            <option value="F" selected>Femenino</option>  
+                        }
+                    }
+                </select>
+            </div>
+
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            <div class=" form-inline">
+
+                <label class="col-form-label">Dirección</label>
+                <input class="form-control" name="Direccion" type="text" value="@Model.Direccion" placeholder="Escriba la Dirección domiciliar" />
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class=" form-inline">
+
+                <label class="col-form-label">Teléfono</label>
+                <input class="form-control" name="Telefono" type="text" value="@Model.Telefono" placeholder="Número Teléfono o Convencional" />
+
+            </div>
+
+        </div>
+
+    </div>
+    <br />
+
+    <div class="row">
+        <div class=" col-md-6">
+            <div class=" form-inline">
+
+                 <label for="selectGenero">Género:</label>
+                <select class="form-control" name="Genero"  id="selectGenero">
+                   @{
+                       if(Model.Genero=="Activo")
+                       {
+                       <option value="Activo" selected> Masculino</option>
+                       <option value="Inactico">Femenino</option>
+                        }
+                        else
+                        {
+                          <option value="Activo"> Masculino</option>
+                            <option value="Inactivo" selected>Femenino</option>  
+                        }
+                    }
+                </select>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+    <input type="submit" value="Actualizar" class="btn btn-success"/> 
+    </div>
+
+    <input type="hidden" name="IdCliente" value=@Model.IdCliente />
+
+</form>
+<br />

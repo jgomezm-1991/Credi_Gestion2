@@ -48,6 +48,45 @@ namespace Credi_Gestion.Controllers
         }
 
 
-      
+        public IActionResult EditarCliente(int IdCliente)
+        {
+            Cliente cliente=_context.Cliente.Where(C=>C.IdCliente==IdCliente).FirstOrDefault();
+            return View(cliente);
+           
+        }
+
+        public IActionResult EditarValorCliente(Cliente cliente)
+        {
+            //Recupero el valor actual en la base de datos
+
+            Cliente ClienteActual = _context.Cliente
+            .Where(a => a.IdCliente == cliente.IdCliente).FirstOrDefault();
+            ClienteActual.NombreCliente=cliente.NombreCliente;
+            ClienteActual.Apellidos=cliente.Apellidos;
+            ClienteActual.Genero=cliente.Genero;
+            ClienteActual.Cedula=cliente.Cedula;
+            ClienteActual.Direccion=cliente.Direccion;
+            ClienteActual.Telefono=cliente.Telefono;    
+            ClienteActual.Estado=cliente.Estado;
+            _context.SaveChanges();
+            List<Cliente>clientes=_context.Cliente.ToList();
+            return View("Clientes",clientes);
+
+        }
+        public IActionResult EliminarCliente(int IdCliente)
+        {
+            // con entityframewor
+            List<Prestamo> prestamo = _context.Prestamo.Where(c=> c.Id == IdCliente).ToList();
+            if (prestamo!= null)
+                _context.RemoveRange(prestamo);
+
+            Cliente cliente=_context.Cliente.Where(c=>c.IdCliente==IdCliente).FirstOrDefault();
+            if(cliente != null)
+        _context.Remove(cliente);
+            _context.SaveChanges();
+            List<Cliente> clientes = _context.Cliente.ToList();
+            return View("Clientes",clientes);
+        }
+
     }
 }
