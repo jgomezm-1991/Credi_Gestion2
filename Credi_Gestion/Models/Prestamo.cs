@@ -6,11 +6,16 @@ namespace Credi_Gestion.Models
 {    
     public class Prestamo
     {
-        public int Id { get; set; }
+        public int Id_Prestamo { get; set; }
 
-        [required]
+       
         [Column(TypeName = "Decimal(12, 2)")]
         public  decimal Monto {get;set;}
+
+        [Column(TypeName = "Decimal(12, 2)")]
+        public decimal interes { get; set; }
+        [Column(TypeName = "Decimal(12, 2)")]
+        public decimal MontoTotal { get; set; }
 
         [Column(TypeName = "Decimal(12, 2)")]
         public decimal Plazo { get;set;}
@@ -18,12 +23,9 @@ namespace Credi_Gestion.Models
         [Column(TypeName = "Decimal(12, 2)")]
         public decimal Saldo { get;set;}
 
-        [Required(ErrorMessage = "Debe seleccionar la fecha")]        
-        [DataType(DataType.Date)]
-        [Display(Name = "Fecha del registro")]
+ 
         public DateTime FechaReg { get; set; }
 
-        [Display(Name = "Usuario que registró")]
         public string UsuarioRe { get; set; }
 
 

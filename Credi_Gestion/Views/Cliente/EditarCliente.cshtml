@@ -2,52 +2,106 @@
 @model Credi_Gestion.Models.Cliente
 
 
-<h1> Editar Cliente</h1>
+<div style="color:cadetblue">
+    <h1 class="text-center">Editar Cliente</h1>
+</div>
 <form asp-action="EditarValorCliente" style="text-align:center">
     <br />
     <div class="row">
 
 
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class=" form-inline">
-                <label class="col-form-label">Nombres</label>
-                <input class="form-control" name="NombreCliente" type="text" value="@Model.NombreCliente" placeholder="Nombres" />
+                <label class="col-form-label" style="width:30%">Nombres:</label>
+                <input class="form-control" style="width:70%" name="NombreCliente" type="text" value="@Model.NombreCliente" placeholder="Nombres" />
             </div>
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class=" form-inline">
-                <label class="col-form-label">Apellidos</label>
-                <input class="form-control" name="Apellidos" type="text" value="@Model.Apellidos" placeholder="Nombres" />
+                <label class="col-form-label" style="width:30%">Apellidos:</label>
+                <input class="form-control" name="Apellidos" style="width:70%" type="text" value="@Model.Apellidos" placeholder="Nombres" />
             </div>
 
         </div>
-
+        <div class="col-md-4"></div>
     </div>
     <br />
     <div class="row">
 
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class=" form-inline">
-                <label class="col-form-label">Cédula</label>
-                <input class="form-control" name="Cedula" type="text" value="@Model.Cedula" placeholder="Número de Identificación" />
+                <label class="col-form-label" style="width:30%">Cédula:</label>
+                <input class="form-control" style="width:70%" name="Cedula" type="text" value="@Model.Cedula" placeholder="Número de Identificación" />
             </div>
         </div>
-        <div class=" col-md-6">
+        <div class=" col-md-4">
             <div class=" form-inline">
 
-                <label for="selectGenero">Género:</label>
-                <select class="form-control" name="Genero"  id="selectGenero">
-                   @{
-                       if(Model.Genero=="M")
-                       {
-                       <option value="M" selected> Masculino</option>
-                       <option value="F">Femenino</option>
+                <label for="selectGenero" style="width:30%">Género:</label>
+                <select class="form-control" name="Genero" style="width:70%" id="selectGenero">
+                    @{
+                        if (Model.Genero == "M")
+                        {
+                            <option value="M" selected> Masculino</option>
+                            <option value="F">Femenino</option>
                         }
                         else
                         {
-                          <option value="M"> Masculino</option>
-                            <option value="F" selected>Femenino</option>  
+                            <option value="M"> Masculino</option>
+                            <option value="F" selected>Femenino</option>
+
+                        }
+                    }
+                </select>
+            </div>
+
+        </div>
+        <div class="col-md-4"></div>
+
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <div class=" form-inline">
+
+                <label class="col-form-label" style="width:30%">Dirección:</label>
+                <input class="form-control" style="width:70%" name="Direccion" type="text" value="@Model.Direccion" placeholder="Escriba la Dirección domiciliar" />
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class=" form-inline">
+
+                <label class="col-form-label" style="width:30%">Teléfono:</label>
+                <input class="form-control" style="width:70%" name="Telefono" type="text" value="@Model.Telefono" placeholder="Número Teléfono o Convencional" />
+
+            </div>
+
+        </div>
+        <div class="col-md-4"></div>
+
+
+    </div>
+    <br />
+
+    <div class="row">
+        <div class=" col-md-4">
+            <div class=" form-inline">
+
+                <label for="selectEstado" style="width:30%">Estado:</label>
+                <select class="form-control" name="Estado" style="width:70%" id="selectEstado">
+                    @{
+                        if (Model.Estado == "Activo")
+                        {
+                            <option value="Activo" selected>Activo</option>
+                            <option value="Inactico">Inactivo</option>
+                        }
+                        else
+                        {
+                            <option value="Activo">Activo</option>
+                            <option value="Inactivo" selected>Inactivo</option>
+
                         }
                     }
                 </select>
@@ -55,57 +109,19 @@
 
         </div>
     </div>
-    <br />
     <div class="row">
-        <div class="col-md-6">
-            <div class=" form-inline">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div>
+                <input style="margin:10px" type="submit" asp-controller="Cliente" asp-action="Clientes" value="Cancelar" class="btn btn-secondary mx-auto float-right">
 
-                <label class="col-form-label">Dirección</label>
-                <input class="form-control" name="Direccion" type="text" value="@Model.Direccion" placeholder="Escriba la Dirección domiciliar" />
-
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class=" form-inline">
-
-                <label class="col-form-label">Teléfono</label>
-                <input class="form-control" name="Telefono" type="text" value="@Model.Telefono" placeholder="Número Teléfono o Convencional" />
-
+                <input type="submit" style="margin:10px" value="Actualizar" class="btn btn-success float-lg-right" />
             </div>
 
         </div>
+        <div class="col-md-4"></div>
 
     </div>
-    <br />
-
-    <div class="row">
-        <div class=" col-md-6">
-            <div class=" form-inline">
-
-                 <label for="selectGenero">Género:</label>
-                <select class="form-control" name="Genero"  id="selectGenero">
-                   @{
-                       if(Model.Genero=="Activo")
-                       {
-                       <option value="Activo" selected> Masculino</option>
-                       <option value="Inactico">Femenino</option>
-                        }
-                        else
-                        {
-                          <option value="Activo"> Masculino</option>
-                            <option value="Inactivo" selected>Femenino</option>  
-                        }
-                    }
-                </select>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="form-group">
-    <input type="submit" value="Actualizar" class="btn btn-success"/> 
-    </div>
-
     <input type="hidden" name="IdCliente" value=@Model.IdCliente />
 
 </form>

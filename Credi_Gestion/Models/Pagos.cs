@@ -8,7 +8,7 @@ namespace Credi_Gestion.Models
     public class Pagos
     {
         [Key]
-        public int Id { get; set; }
+        public int Id_Pago { get; set; }
 
         [Column(TypeName = "Decimal(12, 2)")]
         public decimal MontoPagado { get; set; }

@@ -1,77 +1,82 @@
-﻿<h1>Ingresar nuevo cliente</h1>
+﻿
 
-<form asp-action="NuevosCliente" style="text-align:center">
+<div style="color:cadetblue">
+<h1 class="text-center">Ingresar nuevo Cliente</h1>
+</div>
+
+<form  asp-action="NuevosCliente" style="text-align:center">
+
     <br />
     <div class="row">
 
 
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class=" form-inline">
-                <label class="col-form-label">Nombres</label>
-                <input class="form-control" name="NombreCliente" type="text" placeholder="Nombres" />
+                <label class="col-form-label" style="width:30%">Nombres:</label>
+                <input class="form-control" style="width:70%" name="NombreCliente" type="text" placeholder="Nombres" />
             </div>
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class=" form-inline">
-                <label class="col-form-label">Apellidos</label>
-                <input class="form-control" name="Apellidos" type="text" placeholder="Nombres" />
+                <label class="col-form-label" style="width:30%">Apellidos:</label>
+                <input class="form-control" style="width:70%" id="name" name="Apellidos" type="text" placeholder="Nombres" />
             </div>
 
         </div>
+        <div class="col-md-4"></div>
 
     </div>
     <br />
     <div class="row">
-
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class=" form-inline">
-                <label class="col-form-label">Cédula</label>
-                <input class="form-control" name="Cedula" type="text" placeholder="Número de Identificación" />
+                <label class="col-form-label" style="width:30%">Cédula:</label>
+                <input class="form-control" style="width:70%" name="Cedula" type="text" placeholder="Número de Identificación" />
             </div>
         </div>
-        <div class=" col-md-6">
+        <div class=" col-md-4">
             <div class=" form-inline">
-
-                <label for="selectGenero">Genero:</label>
-                <select class="form-control" name="Genero" id="selectGenero">
-                    <option>Seleccione</option>
-                    <option>M</option>
-                    <option>F</option>
+                <label for="selectGenero" style="width:30%">Género:</label>
+                <select style="width:70%" class="form-control" name="Genero" id="selectGenero">
+                    <option value="" disabled="" selected="">seleccione</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
                 </select>
-            </div>
 
+            </div>
         </div>
+        <div class="col-md-4"></div>
     </div>
     <br />
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class=" form-inline">
 
-                <label class="col-form-label">Dirección</label>
-                <input class="form-control" name="Direccion" type="text" placeholder="Escriba la Dirección domiciliar" />
+                <label class="col-form-label" style="width:30%">Dirección:</label>
+                <input class="form-control" style="width:70%" name="Direccion" type="text" placeholder="Escriba la Dirección domiciliar" />
 
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class=" form-inline">
 
-                <label class="col-form-label">Teléfono</label>
-                <input class="form-control" name="Telefono" type="text" placeholder="Número Teléfono o Convencional" />
+                <label class="col-form-label" style="width:30%">Teléfono:</label>
+                <input class="form-control" style="width:70%" name="Telefono" type="text" placeholder="Número Teléfono o Convencional" />
 
             </div>
 
         </div>
-
+        <div class="col-md-4"></div>
     </div>
     <br />
 
     <div class="row">
-        <div class=" col-md-6">
+        <div class=" col-md-4">
             <div class=" form-inline">
 
-                <label for="selectEstado">Estado:</label>
-                <select class="form-control" name="Estado" id="selectEstado">
+                <label for="selectEstado" style="width:30%">Estado:</label>
+                <select class="form-control" style="width:70%" name="Estado" id="selectEstado">
                     <option>Seleccione</option>
                     <option>Activo</option>
                     <option>Inactivo</option>
@@ -86,17 +91,17 @@
 
 
     <div class="row">
-        <div class="col-md-6">
-
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
             <div>
-                <input style="margin:10px" type="submit" value="Cancelar" class="btn btn-secondary mx-auto float-right">
+                <input style="margin:10px" type="submit" asp-controller="Cliente" asp-action="Clientes" value="Cancelar" class="btn btn-secondary mx-auto float-right">
                 <input style="margin:10px" type="submit" value="Guardar" class="btn btn-success float-right">
             </div>
         </div>
+        <div class="col-md-4"></div>
+
     </div>
-    <
+
 </form>
 <br />
 

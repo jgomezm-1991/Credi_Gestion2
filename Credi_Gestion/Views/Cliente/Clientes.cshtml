@@ -85,11 +85,9 @@
         <thead class="thead-dark" id="tableheader">
             <tr>
                 <th>
-                    Nombres
+                    Nombre completo
                 </th>
-                <th>
-                    Apellidos
-                </th>
+             
                 <th>
                     Cédula
                 </th>
@@ -99,9 +97,7 @@
                 <th>
                     Dirección
                 </th>
-                <th>
-                    Telefono
-                </th>
+               
                 <th>
                     Fecha
                 </th>
@@ -125,13 +121,11 @@
                 foreach (var Cliente in Model)
                 {
                         <tr>
-                            <td>@Cliente.NombreCliente</td>
-                            <td>@Cliente.Apellidos</td>
+                             <td>@Cliente.NombreCliente @Cliente.Apellidos</td>                            
                             <td>@Cliente.Cedula</td>
                             <td>@Cliente.Genero</td>
                             <td>@Cliente.Direccion</td>
-                            <td>@Cliente.Telefono</td>
-                            <td>@Cliente.FechaReg</td>
+                            <td>@Cliente.FechaReg.ToShortDateString()</td>
                             <td>@Cliente.Estado</td>
                             <td>
                              <a class="btn btn-info" asp-action="EditarCliente" asp-route-IdCliente="@Cliente.IdCliente">Editar</a>
