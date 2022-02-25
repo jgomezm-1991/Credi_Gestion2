@@ -76,7 +76,7 @@ namespace Credi_Gestion.Controllers
         public IActionResult EliminarCliente(int IdCliente)
         {
             // con entityframewor
-            List<Prestamo> prestamo = _context.Prestamo.Where(c=> c.Id == IdCliente).ToList();
+            List<Prestamo> prestamo = _context.Prestamo.Where(c=> c.IdPrestamo == IdCliente).ToList();
             if (prestamo!= null)
                 _context.RemoveRange(prestamo);
 

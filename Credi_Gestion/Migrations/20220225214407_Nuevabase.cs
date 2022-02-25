@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Credi_Gestion.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Nuevabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,43 +11,46 @@ namespace Credi_Gestion.Migrations
                 name: "Cliente",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    IdCliente = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreCliente = table.Column<string>(nullable: false),
+                    NombreCliente = table.Column<string>(maxLength: 100, nullable: false),
+                    Apellidos = table.Column<string>(maxLength: 100, nullable: true),
                     Cedula = table.Column<string>(maxLength: 100, nullable: false),
                     Direccion = table.Column<string>(maxLength: 100, nullable: false),
+                    Genero = table.Column<string>(maxLength: 100, nullable: true),
                     Telefono = table.Column<string>(nullable: false),
-                    Prestamo = table.Column<decimal>(nullable: false),
-                    Saldo = table.Column<decimal>(type: "decimal(12, 2)", nullable: false),
+                    Estado = table.Column<string>(maxLength: 100, nullable: true),
                     FechaReg = table.Column<DateTime>(nullable: false),
-                    UsuarioRe = table.Column<string>(nullable: true)
+                    IdUsuario = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cliente", x => x.Id);
+                    table.PrimaryKey("PK_Cliente", x => x.IdCliente);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Prestamo",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    IdPrestamo = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ClienteId = table.Column<int>(nullable: true),
                     Monto = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
+                    interes = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
+                    MontoTotal = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
                     Plazo = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
                     Saldo = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
                     FechaReg = table.Column<DateTime>(nullable: false),
-                    UsuarioRe = table.Column<string>(nullable: true),
-                    ClienteId = table.Column<int>(nullable: true)
+                    UsuarioRe = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Prestamo", x => x.Id);
+                    table.PrimaryKey("PK_Prestamo", x => x.IdPrestamo);
                     table.ForeignKey(
                         name: "FK_Prestamo_Cliente_ClienteId",
                         column: x => x.ClienteId,
                         principalTable: "Cliente",
-                        principalColumn: "Id",
+                        principalColumn: "IdCliente",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -55,29 +58,29 @@ namespace Credi_Gestion.Migrations
                 name: "Pagos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id_Pago = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MontoPagado = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
                     FechaPago = table.Column<DateTime>(nullable: false),
                     Saldo = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
                     UsuarioRe = table.Column<string>(nullable: true),
-                    PrestamoId = table.Column<int>(nullable: true)
+                    IdPrestamo = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Pagos", x => x.Id);
+                    table.PrimaryKey("PK_Pagos", x => x.Id_Pago);
                     table.ForeignKey(
-                        name: "FK_Pagos_Prestamo_PrestamoId",
-                        column: x => x.PrestamoId,
+                        name: "FK_Pagos_Prestamo_IdPrestamo",
+                        column: x => x.IdPrestamo,
                         principalTable: "Prestamo",
-                        principalColumn: "Id",
+                        principalColumn: "IdPrestamo",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Pagos_PrestamoId",
+                name: "IX_Pagos_IdPrestamo",
                 table: "Pagos",
-                column: "PrestamoId");
+                column: "IdPrestamo");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Prestamo_ClienteId",

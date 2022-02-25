@@ -70,7 +70,7 @@ namespace Credi_Gestion.Migrations
 
             modelBuilder.Entity("Credi_Gestion.Models.Pagos", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("Id_Pago")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -78,11 +78,11 @@ namespace Credi_Gestion.Migrations
                     b.Property<DateTime>("FechaPago")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("IdPrestamo")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("MontoPagado")
                         .HasColumnType("Decimal(12, 2)");
-
-                    b.Property<int?>("PrestamoId")
-                        .HasColumnType("int");
 
                     b.Property<decimal>("Saldo")
                         .HasColumnType("Decimal(12, 2)");
@@ -90,16 +90,16 @@ namespace Credi_Gestion.Migrations
                     b.Property<string>("UsuarioRe")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id_Pago");
 
-                    b.HasIndex("PrestamoId");
+                    b.HasIndex("IdPrestamo");
 
                     b.ToTable("Pagos");
                 });
 
             modelBuilder.Entity("Credi_Gestion.Models.Prestamo", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("IdPrestamo")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -113,6 +113,9 @@ namespace Credi_Gestion.Migrations
                     b.Property<decimal>("Monto")
                         .HasColumnType("Decimal(12, 2)");
 
+                    b.Property<decimal>("MontoTotal")
+                        .HasColumnType("Decimal(12, 2)");
+
                     b.Property<decimal>("Plazo")
                         .HasColumnType("Decimal(12, 2)");
 
@@ -122,7 +125,10 @@ namespace Credi_Gestion.Migrations
                     b.Property<string>("UsuarioRe")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<decimal>("interes")
+                        .HasColumnType("Decimal(12, 2)");
+
+                    b.HasKey("IdPrestamo");
 
                     b.HasIndex("ClienteId");
 
@@ -133,7 +139,7 @@ namespace Credi_Gestion.Migrations
                 {
                     b.HasOne("Credi_Gestion.Models.Prestamo", "Prestamo")
                         .WithMany()
-                        .HasForeignKey("PrestamoId");
+                        .HasForeignKey("IdPrestamo");
                 });
 
             modelBuilder.Entity("Credi_Gestion.Models.Prestamo", b =>

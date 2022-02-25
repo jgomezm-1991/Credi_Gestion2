@@ -21,7 +21,7 @@ namespace Credi_Gestion.Models
 
         public string UsuarioRe { get; set; }
 
-        [ForeignKey("PrestamoId")]
+        [ForeignKey("IdPrestamo")]
         public Prestamo Prestamo { get; set; }
     }
 }
