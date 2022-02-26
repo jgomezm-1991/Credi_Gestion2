@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Credi_Gestion.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20220225214407_Nuevabase")]
-    partial class Nuevabase
+    [Migration("20220226093057_clear")]
+    partial class clear
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -109,8 +109,14 @@ namespace Credi_Gestion.Migrations
                     b.Property<int?>("ClienteId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Estado")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("FechaReg")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Moneda")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Monto")
                         .HasColumnType("Decimal(12, 2)");

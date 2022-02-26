@@ -46,6 +46,13 @@ namespace Credi_Gestion.Controllers
             List<Cliente> clientes = _context.Cliente.ToList();
             return View(clientes);
         }
+        
+        public IActionResult Prestamos()
+        {
+            List<Prestamo> prestamos = _context.Prestamo.ToList();
+            return View(prestamos);
+        }
+   
 
 
         public IActionResult EditarCliente(int IdCliente)

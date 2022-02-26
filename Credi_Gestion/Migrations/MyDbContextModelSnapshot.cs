@@ -107,6 +107,9 @@ namespace Credi_Gestion.Migrations
                     b.Property<int?>("ClienteId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Estado")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("FechaReg")
                         .HasColumnType("datetime2");
 

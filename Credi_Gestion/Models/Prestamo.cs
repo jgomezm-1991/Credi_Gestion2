@@ -32,6 +32,8 @@ namespace Credi_Gestion.Models
 
         public string UsuarioRe { get; set; }
 
+        public string Estado { get; set; }
+
 
        
 

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Credi_Gestion.Migrations
 {
-    public partial class Nuevabase : Migration
+    public partial class clear : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -36,12 +36,14 @@ namespace Credi_Gestion.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ClienteId = table.Column<int>(nullable: true),
                     Monto = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
+                    Moneda = table.Column<string>(nullable: true),
                     interes = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
                     MontoTotal = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
                     Plazo = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
                     Saldo = table.Column<decimal>(type: "Decimal(12, 2)", nullable: false),
                     FechaReg = table.Column<DateTime>(nullable: false),
-                    UsuarioRe = table.Column<string>(nullable: true)
+                    UsuarioRe = table.Column<string>(nullable: true),
+                    Estado = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
