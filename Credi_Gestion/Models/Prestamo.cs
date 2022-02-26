@@ -14,6 +14,8 @@ namespace Credi_Gestion.Models
         [Column(TypeName = "Decimal(12, 2)")]
         public  decimal Monto {get;set;}
 
+        public string Moneda { get; set; }
+
         [Column(TypeName = "Decimal(12, 2)")]
         public decimal interes { get; set; }
         [Column(TypeName = "Decimal(12, 2)")]

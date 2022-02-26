@@ -1,7 +1,7 @@
 ﻿@model List<Credi_Gestion.Models.Prestamo>
 
 @{ 
-    ViewData["Title"] ="Home Page";
+    ViewData["Title"] = "Home Page";
 }
 
 <div class="alert-dark">
@@ -14,10 +14,49 @@
         <thead class="thead-dark" id="tableheader">
             <tr>
                 <th>
-
+                    Cliente
+                </th>
+                <th>
+                    Monto
+                </th>
+                <th>
+                    Moneda
+                </th>
+                <th>
+                    Plazo
+                </th>
+                <th>
+                    Interés
+                </th>
+                <th>
+                    Monto TotaL
+                </th>
+                <th>
+                    Saldo Inicial
                 </th>
             </tr>
         </thead>
+        <tbody>
+            @{ 
+                foreach (var Prestamo in Model)
+                {
+                        <tr>
+                            <td>@Prestamo.Monto</td>
+                            <td>@Prestamo.Moneda</td>
+                            <td>@Prestamo.Plazo</td>
+                            <td>@Prestamo.interes</td>
+                            <td>@Prestamo.MontoTotal</td>
+                            <th> @Prestamo.Saldo </th>
+                           
+
+
+
+                        </tr>
+                        
+
+                    }
+                }
+        </tbody>
 
     </table>
 </div>
