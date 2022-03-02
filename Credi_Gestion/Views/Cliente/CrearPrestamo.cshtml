@@ -1,0 +1,27 @@
+﻿@model List<Credi_Gestion.Models.Cliente>
+<h1 style="font-family:Constantia; font-size:xx-large;color:lightseagreen;text-align:justify">Crear nuevo prestamo</h1>
+<form asp-action="GuardarPrestamo" style="font-family:Constantia;font-size:large; color:lightseagreen">
+    <div class="col-md-6">
+        <label for="selectcliente">Cliente:</label>
+        <select class="form-control" name="IdCliente" id="selectcliente">
+            @{ 
+                foreach (var Cliente in Model)
+                {
+                    <option value="@Cliente.IdCliente">@Cliente.NombreCliente @Cliente.Apellidos</option>
+                    }
+                }@
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label class="col-form-label">Monto</label>
+        <input class="form-control" name="Monto" value="" type="text" placeholder="Monto" />
+
+    </div>
+    <div class="col-md-6">
+
+    </div>
+
+
+
+
+</form>
