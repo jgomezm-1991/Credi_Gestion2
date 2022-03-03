@@ -1,4 +1,4 @@
-﻿@model List<Credi_Gestion.Models.Prestamo>
+﻿@model Credi_Gestion.Models.ClientePrestamo
 
 @{ 
     ViewData["Title"] = "Home Page";
@@ -34,33 +34,46 @@
                 <th>
                     Saldo Inicial
                 </th>
+                <th>
+                    Estado
+                </th>
             </tr>
         </thead>
         <tbody>
-            @{ 
-                foreach (var Prestamo in Model)
+            @{
+                foreach (var ClientePrestamo in Model.Prestamos)
                 {
                         <tr>
-                            <td>@Prestamo.Monto</td>
-                            <td>@Prestamo.Moneda</td>
-                            <td>@Prestamo.Plazo</td>
-                            <td>@Prestamo.interes</td>
-                            <td>@Prestamo.MontoTotal</td>
-                            <td>@Prestamo.Saldo </td>
-                          
+                            <td>
+                                @{
+                                    var cliente = Model.Clientes.Where(a => a.IdCliente == ClientePrestamo.Cliente.IdCliente).FirstOrDefault();
+
+                                    <span>@(cliente.NombreCliente + " " + cliente.Apellidos)</span>
+                                }
+                            </td>
+
+                            <td>@ClientePrestamo.Monto</td>
+                            <td>@ClientePrestamo.Moneda</td>
+                            <td>@ClientePrestamo.Plazo</td>
+                            <td>@ClientePrestamo.interes</td>
+                            <td>@ClientePrestamo.MontoTotal</td>
+                            <td>@ClientePrestamo.Saldo </td>
+                            <td>@ClientePrestamo.Estado</td>
+
+
 
 
 
                         </tr>
-                        
 
-                    }
+
                 }
+            }
         </tbody>
 
-    </table>
+        </table>
     <div>
         
-        <a class="btn  btn-outline-success" asp-controller="Cliente" asp-action="CrearPrestamo">Nuevo Prestamo</a>
+        <a class="btn  btn-outline-success" asp-controller="Cliente" asp-action="GuardarPrestamo">Nuevo Prestamo</a>
     </div>
 </div>

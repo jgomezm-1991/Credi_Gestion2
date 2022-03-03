@@ -45,16 +45,9 @@ namespace Credi_Gestion.Controllers
         {
             List<Cliente> clientes = _context.Cliente.ToList();
             return View(clientes);
-        }
-        
-        public IActionResult Prestamos()
-        {
-            List<Prestamo> prestamos = _context.Prestamo.ToList();
-            return View(prestamos);
-        }
+        }      
+    
    
-
-
         public IActionResult EditarCliente(int IdCliente)
         {
             Cliente cliente=_context.Cliente.Where(C=>C.IdCliente==IdCliente).FirstOrDefault();
@@ -93,6 +86,36 @@ namespace Credi_Gestion.Controllers
             _context.SaveChanges();
             List<Cliente> clientes = _context.Cliente.ToList();
             return View("Clientes",clientes);
+        }
+
+        // Comenzamos con prestamo//
+        public IActionResult CrearPrestamo()
+        {
+            List<Cliente> cliente = _context.Cliente.ToList();
+            return View(cliente);
+        }
+        public IActionResult Prestamos()
+        {
+            ClientePrestamo ClientePrestamo = new ClientePrestamo();
+            ClientePrestamo.Clientes = _context.Cliente.ToList();
+            ClientePrestamo.Prestamos = _context.Prestamo.ToList();
+            return View(ClientePrestamo);
+        }
+        public IActionResult AgregarPrestamo(int IdCliente)
+        {
+            List<Cliente> cliente = _context.Cliente.Where(c => c.IdCliente == IdCliente).ToList();
+            return View("CrearPrestamo", cliente);
+        }
+        public IActionResult GuardarPrestamo(Prestamo prestamo)
+        {
+            prestamo.FechaReg = DateTime.Now;
+            prestamo.MontoTotal = prestamo.Monto + ((prestamo.Monto * prestamo.interes) / 100);
+            prestamo.Saldo = prestamo.Saldo;
+            prestamo.Estado = "Activo";
+            prestamo.UsuarioRe = "Admin";
+            _context.Prestamo.Add(prestamo);
+            _context.SaveChanges();
+            return RedirectToAction("Prestamos");
         }
 
     }

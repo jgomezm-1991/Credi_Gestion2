@@ -128,8 +128,9 @@
                             <td>@Cliente.FechaReg.ToShortDateString()</td>
                             <td>@Cliente.Estado</td>
                             <td>
-                             <a class="btn btn-info" asp-action="EditarCliente" asp-route-IdCliente="@Cliente.IdCliente">Editar</a>
-                             <a class="btn btn-info" asp-action="EliminarCliente" asp-route-IdCliente="@Cliente.IdCliente">Eliminar</a>
+                                <a class="btn btn-info" asp-action="EditarCliente" asp-route-IdCliente="@Cliente.IdCliente">Editar</a>
+                                <a class="btn btn-info" asp-action="EliminarCliente" asp-route-IdCliente="@Cliente.IdCliente">Eliminar</a>
+                                <a class="btn btn-success" asp-action="AgregarPrestamo" asp-route-IdCliente="@Cliente.IdCliente">Nuevo Préstamo</a>
 
                             </td>
                            
