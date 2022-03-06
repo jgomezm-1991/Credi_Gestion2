@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Credi_Gestion.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20220226093057_clear")]
-    partial class clear
+    [Migration("20220306064730_nuevaba")]
+    partial class nuevaba
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -72,7 +72,7 @@ namespace Credi_Gestion.Migrations
 
             modelBuilder.Entity("Credi_Gestion.Models.Pagos", b =>
                 {
-                    b.Property<int>("Id_Pago")
+                    b.Property<int>("IdPago")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -80,7 +80,7 @@ namespace Credi_Gestion.Migrations
                     b.Property<DateTime>("FechaPago")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("IdPrestamo")
+                    b.Property<int>("IdPrestamo")
                         .HasColumnType("int");
 
                     b.Property<decimal>("MontoPagado")
@@ -92,9 +92,7 @@ namespace Credi_Gestion.Migrations
                     b.Property<string>("UsuarioRe")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id_Pago");
-
-                    b.HasIndex("IdPrestamo");
+                    b.HasKey("IdPago");
 
                     b.ToTable("Pagos");
                 });
@@ -106,14 +104,14 @@ namespace Credi_Gestion.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ClienteId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Estado")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("FechaReg")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("IdCliente")
+                        .HasColumnType("int");
 
                     b.Property<string>("Moneda")
                         .HasColumnType("nvarchar(max)");
@@ -138,23 +136,7 @@ namespace Credi_Gestion.Migrations
 
                     b.HasKey("IdPrestamo");
 
-                    b.HasIndex("ClienteId");
-
                     b.ToTable("Prestamo");
-                });
-
-            modelBuilder.Entity("Credi_Gestion.Models.Pagos", b =>
-                {
-                    b.HasOne("Credi_Gestion.Models.Prestamo", "Prestamo")
-                        .WithMany()
-                        .HasForeignKey("IdPrestamo");
-                });
-
-            modelBuilder.Entity("Credi_Gestion.Models.Prestamo", b =>
-                {
-                    b.HasOne("Credi_Gestion.Models.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("ClienteId");
                 });
 #pragma warning restore 612, 618
         }

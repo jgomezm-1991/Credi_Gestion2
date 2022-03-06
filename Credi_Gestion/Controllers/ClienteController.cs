@@ -28,7 +28,7 @@ namespace Credi_Gestion.Controllers
         }
 
         public IActionResult NuevoCliente()
-        
+
         {
             return View();
         }
@@ -45,14 +45,14 @@ namespace Credi_Gestion.Controllers
         {
             List<Cliente> clientes = _context.Cliente.ToList();
             return View(clientes);
-        }      
-    
-   
+        }
+
+
         public IActionResult EditarCliente(int IdCliente)
         {
-            Cliente cliente=_context.Cliente.Where(C=>C.IdCliente==IdCliente).FirstOrDefault();
+            Cliente cliente = _context.Cliente.Where(C => C.IdCliente == IdCliente).FirstOrDefault();
             return View(cliente);
-           
+
         }
 
         public IActionResult EditarValorCliente(Cliente cliente)
@@ -61,31 +61,31 @@ namespace Credi_Gestion.Controllers
 
             Cliente ClienteActual = _context.Cliente
             .Where(a => a.IdCliente == cliente.IdCliente).FirstOrDefault();
-            ClienteActual.NombreCliente=cliente.NombreCliente;
-            ClienteActual.Apellidos=cliente.Apellidos;
-            ClienteActual.Genero=cliente.Genero;
-            ClienteActual.Cedula=cliente.Cedula;
-            ClienteActual.Direccion=cliente.Direccion;
-            ClienteActual.Telefono=cliente.Telefono;    
-            ClienteActual.Estado=cliente.Estado;
+            ClienteActual.NombreCliente = cliente.NombreCliente;
+            ClienteActual.Apellidos = cliente.Apellidos;
+            ClienteActual.Genero = cliente.Genero;
+            ClienteActual.Cedula = cliente.Cedula;
+            ClienteActual.Direccion = cliente.Direccion;
+            ClienteActual.Telefono = cliente.Telefono;
+            ClienteActual.Estado = cliente.Estado;
             _context.SaveChanges();
-            List<Cliente>clientes=_context.Cliente.ToList();
-            return View("Clientes",clientes);
+            List<Cliente> clientes = _context.Cliente.ToList();
+            return View("Clientes", clientes);
 
         }
         public IActionResult EliminarCliente(int IdCliente)
         {
             // con entityframewor
-            List<Prestamo> prestamo = _context.Prestamo.Where(c=> c.IdPrestamo == IdCliente).ToList();
-            if (prestamo!= null)
+            List<Prestamo> prestamo = _context.Prestamo.Where(c => c.IdPrestamo == IdCliente).ToList();
+            if (prestamo != null)
                 _context.RemoveRange(prestamo);
 
-            Cliente cliente=_context.Cliente.Where(c=>c.IdCliente==IdCliente).FirstOrDefault();
-            if(cliente != null)
-        _context.Remove(cliente);
+            Cliente cliente = _context.Cliente.Where(c => c.IdCliente == IdCliente).FirstOrDefault();
+            if (cliente != null)
+                _context.Remove(cliente);
             _context.SaveChanges();
             List<Cliente> clientes = _context.Cliente.ToList();
-            return View("Clientes",clientes);
+            return View("Clientes", clientes);
         }
 
         // Comenzamos con prestamo//
@@ -110,7 +110,7 @@ namespace Credi_Gestion.Controllers
         {
             prestamo.FechaReg = DateTime.Now;
             prestamo.MontoTotal = prestamo.Monto + ((prestamo.Monto * prestamo.interes) / 100);
-            prestamo.Saldo = prestamo.Saldo;
+            prestamo.Saldo = prestamo.MontoTotal;
             prestamo.Estado = "Activo";
             prestamo.UsuarioRe = "Admin";
             _context.Prestamo.Add(prestamo);

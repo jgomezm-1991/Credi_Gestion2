@@ -37,6 +37,7 @@
                 <th>
                     Estado
                 </th>
+
             </tr>
         </thead>
         <tbody>
@@ -46,7 +47,7 @@
                         <tr>
                             <td>
                                 @{
-                                    var cliente = Model.Clientes.Where(a => a.IdCliente == ClientePrestamo.Cliente.IdCliente).FirstOrDefault();
+                                    var cliente = Model.Clientes.Where(a => a.IdCliente == ClientePrestamo.IdCliente).FirstOrDefault();
 
                                     <span>@(cliente.NombreCliente + " " + cliente.Apellidos)</span>
                                 }
@@ -74,6 +75,6 @@
         </table>
     <div>
         
-        <a class="btn  btn-outline-success" asp-controller="Cliente" asp-action="GuardarPrestamo">Nuevo Prestamo</a>
+        <a class="btn  btn-outline-success" asp-controller="Cliente" asp-action="CrearPrestamo">Nuevo Prestamo</a>
     </div>
 </div>

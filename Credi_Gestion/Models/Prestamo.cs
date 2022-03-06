@@ -9,8 +9,9 @@ namespace Credi_Gestion.Models
         [Key]
         public int IdPrestamo { get; set; }
 
-        [ForeignKey("ClienteId")]
-        public Cliente Cliente { get; set; }
+       
+        public int IdCliente { get; set; }
+
         [Column(TypeName = "Decimal(12, 2)")]
         public  decimal Monto {get;set;}
 

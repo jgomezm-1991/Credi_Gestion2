@@ -8,7 +8,7 @@ namespace Credi_Gestion.Models
     public class Pagos
     {
         [Key]
-        public int Id_Pago { get; set; }
+        public int IdPago { get; set; }
 
         [Column(TypeName = "Decimal(12, 2)")]
         public decimal MontoPagado { get; set; }
@@ -20,8 +20,8 @@ namespace Credi_Gestion.Models
         public decimal Saldo { get; set; }
 
         public string UsuarioRe { get; set; }
-
         [ForeignKey("IdPrestamo")]
-        public Prestamo Prestamo { get; set; }
+        public int IdPrestamo { get; set; }
+        
     }
 }

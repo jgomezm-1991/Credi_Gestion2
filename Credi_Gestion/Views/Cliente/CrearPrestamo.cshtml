@@ -18,42 +18,34 @@
 
     </div>
     <div class="col-md-6">
-        <div class="form-inline">
-            <label for="selectMoneda" style="width:30%">Moneda</label>
-            <select style="width:70%" class="form-control" name="Moneda" id="selectMoneda">
-                <option value="" disabled="" selected="">Seleccione:</option>
+        
+            <label for="selectMoneda">Moneda</label>
+            <select class="form-control" name="Moneda" id="selectMoneda">
+                <option value="" disabled="" selected="">Seleccione</option>
                 <option value="Cordobas">Córdoba</option>
                 <option value="Dolares">Dólares</option>
                 <option value="Euros">Euros</option>
             </select>
-        </div>
+        
 
     </div>
-    <div class="col-md-6">
-        <label class="col-form-label">Interés %</label>
-        <input class="form-control" name="interes" value="" type="text" placeholder="Interés" />
-    </div>
-
-    <div class="col-md-6">
-        <label classs="col-form-label">Monto Total</label>
-        <input class="form-control" name="MontoTotal" value="" type="text" placeholder="Monto Total" />
-    </div>
-
     <div class="col-md-6">
         <label class="col-form-label">Plazo</label>
         <input class="form-control" name="Plazo" value="" type="text" placeholder="Plazo" />
 
     </div>
-    <div class="col-6">
-        <div class="col-form-label">Total deuda</div>
-        <input class="form-control" name="Saldo" value="" type="text" placeholder="Total deuda" />
+    <div  class="col-md-6">
+        <label class="col-form-label">Interés %</label>
+        <input class="form-control" name="interes" value="" type="text" placeholder="Interés" />
+    </div>  
 
-    </div>
-    <div class="col-md-6">
+
+   
+    <div class="col-md-6" style="text-align:right">
         <input type="submit" value="Guardar" onclick="return confirm('¿Esta seguro que desea guardar el prestamo?')" class="btn btn btn-success">
         <input style="margin:10px" type="submit" asp-action="Prestamos" value="Cancelar" class="btn btn-secondary mx-auto">
     </div>
 
-   
+
 
 </form>
