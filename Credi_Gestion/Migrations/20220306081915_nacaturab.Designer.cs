@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Credi_Gestion.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20220306081231_nacatur")]
-    partial class nacatur
+    [Migration("20220306081915_nacaturab")]
+    partial class nacaturab
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Credi_Gestion.Migrations
 {
-    public partial class nacatu : Migration
+    public partial class nacaturab : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

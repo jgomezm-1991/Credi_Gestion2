@@ -10,7 +10,7 @@ namespace Credi_Gestion.Models
     public class Pago
     {
 
-        
+            
             [Key]
             public int IdPago { get; set; }
 
