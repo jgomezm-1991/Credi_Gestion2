@@ -12,7 +12,6 @@ namespace Credi_Gestion.Data
 
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Prestamo> Prestamo { get; set; }
-        public DbSet<Pagos> Pagos { get; set; }
         public object Clientes { get; internal set; }
 
         /* protected override void OnModelCreating(ModelBuilder builder)

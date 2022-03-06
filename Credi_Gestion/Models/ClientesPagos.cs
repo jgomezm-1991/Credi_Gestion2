@@ -18,7 +18,7 @@ namespace Credi_Gestion.Models
         }
         public List<Cliente> Clientes { get; set; }
         public List<Cliente> Prestamos { get; set; }
-        public List<Cliente> Pagos { get; set; }
+        //public List<Cliente> Pagos { get; set; }
 
     }
 }
