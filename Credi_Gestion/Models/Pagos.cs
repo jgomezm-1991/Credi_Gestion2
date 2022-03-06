@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+using System;
 
 
 namespace Credi_Gestion.Models
@@ -23,9 +20,9 @@ namespace Credi_Gestion.Models
         public decimal Saldo { get; set; }
 
         public string UsuarioRe { get; set; }
-        public int IdPrestamo { get; set; }
+         public int IdPrestamo { get; set; }
         [ForeignKey("IdPrestamo")]
-        public Prestamo Prestamo { get; set; }
-
+        public Prestamo Prestamo  { get; set; }
+        
     }
 }
