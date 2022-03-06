@@ -92,6 +92,8 @@ namespace Credi_Gestion.Migrations
 
                     b.HasKey("IdPago");
 
+                    b.HasIndex("IdPrestamo");
+
                     b.ToTable("Pagos");
                 });
 
@@ -135,6 +137,15 @@ namespace Credi_Gestion.Migrations
                     b.HasKey("IdPrestamo");
 
                     b.ToTable("Prestamo");
+                });
+
+            modelBuilder.Entity("Credi_Gestion.Models.Pagos", b =>
+                {
+                    b.HasOne("Credi_Gestion.Models.Prestamo", "Prestamo")
+                        .WithMany()
+                        .HasForeignKey("IdPrestamo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
