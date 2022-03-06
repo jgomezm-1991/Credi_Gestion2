@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Credi_Gestion.Migrations
 {
-    public partial class nacaturab : Migration
+    public partial class primera : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,16 +48,27 @@ namespace Credi_Gestion.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Prestamo", x => x.IdPrestamo);
+                    table.ForeignKey(
+                        name: "FK_Prestamo_Cliente_IdCliente",
+                        column: x => x.IdCliente,
+                        principalTable: "Cliente",
+                        principalColumn: "IdCliente",
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Prestamo_IdCliente",
+                table: "Prestamo",
+                column: "IdCliente");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Cliente");
+                name: "Prestamo");
 
             migrationBuilder.DropTable(
-                name: "Prestamo");
+                name: "Cliente");
         }
     }
 }
