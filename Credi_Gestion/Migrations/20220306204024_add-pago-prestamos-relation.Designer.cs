@@ -4,14 +4,16 @@ using Credi_Gestion.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Credi_Gestion.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220306204024_add-pago-prestamos-relation")]
+    partial class addpagoprestamosrelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,7 +80,7 @@ namespace Credi_Gestion.Migrations
                     b.Property<DateTime>("FechaPago")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("IdPrestamo")
+                    b.Property<int?>("IdPrestamo")
                         .HasColumnType("int");
 
                     b.Property<decimal>("MontoPagado")
@@ -143,11 +145,9 @@ namespace Credi_Gestion.Migrations
 
             modelBuilder.Entity("Credi_Gestion.Models.Pago", b =>
                 {
-                    b.HasOne("Credi_Gestion.Models.Prestamo", "Prestamo")
+                    b.HasOne("Credi_Gestion.Models.Prestamo", "prestamo")
                         .WithMany("pagos")
-                        .HasForeignKey("IdPrestamo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdPrestamo");
                 });
 
             modelBuilder.Entity("Credi_Gestion.Models.Prestamo", b =>

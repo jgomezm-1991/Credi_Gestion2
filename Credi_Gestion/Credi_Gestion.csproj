@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20220212215101_Pagos.cs" />
+    <Compile Remove="Migrations\20220212215101_&#xD;&#xA;			 s.cs" />
     <Compile Remove="Migrations\20220212215101_Pagos.Designer.cs" />
     <Compile Remove="Migrations\20220212215411_nuevo.cs" />
     <Compile Remove="Migrations\20220212215411_nuevo.Designer.cs" />
@@ -20,6 +20,14 @@
     <Compile Remove="Migrations\20220225214044_Nuevabase.Designer.cs" />
     <Compile Remove="Migrations\20220225214134_Nuevabase.cs" />
     <Compile Remove="Migrations\20220225214134_Nuevabase.Designer.cs" />
+    <Compile Remove="Migrations\20220306084216_segunda.cs" />
+    <Compile Remove="Migrations\20220306084216_segunda.Designer.cs" />
+    <Compile Remove="Migrations\20220306091130_nuevaa.cs" />
+    <Compile Remove="Migrations\20220306091130_nuevaa.Designer.cs" />
+    <Compile Remove="Migrations\20220306202728_add-pago-prestamos-relation.cs" />
+    <Compile Remove="Migrations\20220306202728_add-pago-prestamos-relation.Designer.cs" />
+    <Compile Remove="Migrations\20220306203416_add-pago-prestamos-relation.cs" />
+    <Compile Remove="Migrations\20220306203416_add-pago-prestamos-relation.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,10 +41,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

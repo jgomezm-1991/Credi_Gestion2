@@ -1,0 +1,56 @@
+﻿@model Credi_Gestion.Models.ClientesPagos
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="alert-dark">
+<h1 class="text-center table-bordered">Lista de abonos ala deuda</h1>
+</div>
+<div class="table-responsive" style="overflow-y:scroll;height:530px">
+    <table id="Pagos" class="table table-bordered header_fijo" style="background-color:lightblue " overflow="scroll">
+
+        <thead class="thead-dark" id="tableheader">
+            <tr>
+                <th>
+                    Cliente
+                </th>
+                <th>
+                    Prestamo C$
+                </th>
+                <th>
+                    Monto Pagado C$
+                </th>
+                <th>
+                    Fecha Pago
+                </th>
+                <th>
+                    Saldo C$
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model.Pagos)
+                {
+                    <tr>
+                        <td>
+                            @{
+                                var Prestamo = Model.Prestamos.Where(a => a.IdPrestamo == item.IdPrestamo).FirstOrDefault();
+                                var cliente = Model.Clientes.Where(b => b.IdCliente == Prestamo.IdCliente).FirstOrDefault();
+                                <span>@(cliente.NombreCliente + " " + cliente.Apellidos)</span>
+                            }
+                        </td>
+                        <td>@Prestamo.Saldo</td>
+                        <td>@item.MontoPagado</td>
+                        <td>@item.FechaPago.ToShortDateString()</td>
+                        <td>@item.Saldo</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-outline-success" asp-controller="Cliente" asp-action="Prestamos">Nuevo Pago</a>
+        <a class="btn btn-outline-danger" asp-controller="HOME" asp-action="Index">Regresar</a>
+    </div>
+</div>

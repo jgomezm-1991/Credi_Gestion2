@@ -37,6 +37,9 @@
                 <th>
                     Estado
                 </th>
+                <th>
+                    Opciones
+                </th>
 
             </tr>
         </thead>
@@ -62,7 +65,15 @@
                             <td>@ClientePrestamo.Estado</td>
 
 
-
+                            <td>
+                                <a class="btn btn-success" asp-action="VerPagosPrestamo" asp-route-IdPrestamo="@ClientePrestamo.IdPrestamo" asp-route-IdCliente="@ClientePrestamo.IdCliente">Ver Pagos</a>
+                                @{
+                                    if (ClientePrestamo.Estado != "Pagado")
+                                    {
+                                        <a class="btn btn-outline-success" asp-action="NuevoPago" asp-route-IdPrestamo="@ClientePrestamo.IdPrestamo" asp-route-IdCliente="@ClientePrestamo.IdCliente">Nuevo Pago</a>
+                                    }
+                                }
+                            </td>
 
 
                         </tr>

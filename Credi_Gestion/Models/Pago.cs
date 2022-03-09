@@ -22,9 +22,14 @@ namespace Credi_Gestion.Models
         public decimal Saldo { get; set; }
 
         public string UsuarioRe { get; set; }
+
+        //[ForeignKey("IdPrestamo")]
+        //public Prestamo prestamo { get; set; }
+
         public int IdPrestamo { get; set; }
         [ForeignKey("IdPrestamo")]
         public Prestamo Prestamo { get; set; }
+
 
     }
 }

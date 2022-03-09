@@ -118,5 +118,18 @@ namespace Credi_Gestion.Controllers
             return RedirectToAction("Prestamos");
         }
 
+
+        public IActionResult Pagos()
+        {
+            ClientesPagos Pagoscliente = new  ClientesPagos();
+            Pagoscliente.Clientes = _context.Clientes.ToList();
+            Pagoscliente.Prestamos = _context.Prestamo.ToList();
+            Pagoscliente.Pagos = _context.Pagos.ToList();
+
+
+        }
+
+
+           
     }
 }

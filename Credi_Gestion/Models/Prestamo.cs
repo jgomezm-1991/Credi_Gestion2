@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Credi_Gestion.Models
-{    
+{
     public class Prestamo
     {
         [Key]
@@ -16,7 +17,7 @@ namespace Credi_Gestion.Models
         public Cliente Cliente { get; set; }
 
         [Column(TypeName = "Decimal(12, 2)")]
-        public  decimal Monto {get;set;}
+        public decimal Monto { get; set; }
 
         public string Moneda { get; set; }
 
@@ -26,20 +27,19 @@ namespace Credi_Gestion.Models
         public decimal MontoTotal { get; set; }
 
         [Column(TypeName = "Decimal(12, 2)")]
-        public decimal Plazo { get;set;}
+        public decimal Plazo { get; set; }
 
         [Column(TypeName = "Decimal(12, 2)")]
-        public decimal Saldo { get;set;}
+        public decimal Saldo { get; set; }
 
- 
+
         public DateTime FechaReg { get; set; }
 
         public string UsuarioRe { get; set; }
 
         public string Estado { get; set; }
 
-
-       
+        public ICollection<Pago> pagos { get; set; }
 
     }
 
