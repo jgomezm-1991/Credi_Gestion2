@@ -122,11 +122,11 @@ namespace Credi_Gestion.Controllers
         public IActionResult Pagos()
         {
             ClientesPagos Pagoscliente = new  ClientesPagos();
-            Pagoscliente.Clientes = _context.Clientes.ToList();
+            Pagoscliente.Clientes = _context.Cliente.ToList();
             Pagoscliente.Prestamos = _context.Prestamo.ToList();
             Pagoscliente.Pagos = _context.Pagos.ToList();
 
-
+            return View(Pagoscliente);
         }
 
 
