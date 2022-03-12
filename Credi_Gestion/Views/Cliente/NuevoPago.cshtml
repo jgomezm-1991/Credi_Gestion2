@@ -1,0 +1,64 @@
+﻿@model Credi_Gestion.Models.ClientePrestamo
+
+    <h1 style="font-family:Constantia;font-size:xx-large ;color:lightgreen;text-align:justify">ingresar nuevo pago</h1>
+    <form asp-action="GuardarPago" style="font-family:Constantia" ; font-size:large; color:lightseagreen">
+
+        <div class="col-sm-6">
+
+            <div>
+                <label for="selectcliente">Cliente:</label>
+                <select class="form-control" id="selectcliente">
+                    @{
+                        foreach (var item in Model.Clientes)
+                        {
+                            <option selected value="@item.IdCliente">@item.NombreCliente @item.Apellidos </option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-6">
+
+            <label class="col-form-label">Deuda Inicial:</label>
+            @{
+                foreach (var prestamo in Model.Prestamos)
+                {
+                    <input class="form-control" type="text" value="@prestamo.Saldo" placeholder="Monto" />
+                    <input type="hidden" name="IdPrestamo" value="@prestamo.IdPrestamo" />
+                }
+            }
+
+
+        </div>
+        <div class="col-sm-6">
+
+            <label class="col-form-label">Saldo Pendiente:</label>
+            @{
+                foreach (var prestamo in Model.Prestamos)
+                {
+                    <input class="form-control" type="text" value="@prestamo.Saldo" name="Saldo" placeholder="Saldo" />
+                }
+            }
+
+        </div>
+
+
+        <div class="col-sm-6">
+
+            <label class="col-form-label">Cantidad a Abonar:</label>
+            <input class="form-control" name="MontoPagado" type="text" placeholder="Ingrese la cantidad" />
+
+        </div>
+        <div>
+            <input style="margin:10px" type="submit" @*onclick="return confirm('¿Está seguro que desea guardar el pago?')"*@ value="Guardar" class="btn btn-success">
+            <input style="margin:10px" type="submit" asp-controller="Cliente" asp-action="Pagos" value="Cancelar" class="btn btn-secondary mx-auto">
+        </div>
+
+
+
+    </form> 
+
+
+
+
+

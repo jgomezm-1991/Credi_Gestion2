@@ -119,17 +119,32 @@ namespace Credi_Gestion.Controllers
         }
 
 
-        public IActionResult Pagos()
+        public IActionResult Pagos ()
         {
             ClientesPagos Pagoscliente = new  ClientesPagos();
             Pagoscliente.Clientes = _context.Cliente.ToList();
             Pagoscliente.Prestamos = _context.Prestamo.ToList();
-            Pagoscliente.Pagos = _context.Pagos.ToList();
+            Pagoscliente.Pagos = _context.Pago.ToList();
 
             return View(Pagoscliente);
         }
+        public IActionResult GuardarPago(Pago pagos)
+        {
+            Prestamo prestamo = _context.Prestamo.Where(a => a.IdPrestamo == pagos.IdPrestamo).FirstOrDefault();
+            pagos.FechaPago = DateTime.Now;
+            pagos.UsuarioRe = "Admin";
+            pagos.Saldo = prestamo.Saldo - pagos.MontoPagado;
+            _context.Pagos.Add(pagos);
 
+            Prestamo prestamos = _context.Prestamo.Where(a => a.IdPrestamo == pagos.IdPrestamo).FirstOrDefault();
+            prestamos.Saldo = pagos.Saldo;
 
-           
-    }
+            if (prestamos.Saldo == 0)
+                prestamos.Estado = "Pagado";
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Pagos");
+
+        }
 }
