@@ -119,9 +119,9 @@ namespace Credi_Gestion.Controllers
         }
 
 
-        public IActionResult Pagos ()
+        public IActionResult Pagos()
         {
-            ClientesPagos Pagoscliente = new  ClientesPagos();
+            ClientesPagos Pagoscliente = new ClientesPagos();
             Pagoscliente.Clientes = _context.Cliente.ToList();
             Pagoscliente.Prestamos = _context.Prestamo.ToList();
             Pagoscliente.Pagos = _context.Pago.ToList();
@@ -147,4 +147,5 @@ namespace Credi_Gestion.Controllers
             return RedirectToAction("Pagos");
 
         }
+    }
 }
