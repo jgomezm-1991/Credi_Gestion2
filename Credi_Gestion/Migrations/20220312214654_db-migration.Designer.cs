@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Credi_Gestion.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20220306083202_primera")]
-    partial class primera
+    [Migration("20220312214654_db-migration")]
+    partial class dbmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,6 +70,35 @@ namespace Credi_Gestion.Migrations
                     b.ToTable("Cliente");
                 });
 
+            modelBuilder.Entity("Credi_Gestion.Models.Pago", b =>
+                {
+                    b.Property<int>("IdPago")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("FechaPago")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdPrestamo")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("MontoPagado")
+                        .HasColumnType("Decimal(12, 2)");
+
+                    b.Property<decimal>("Saldo")
+                        .HasColumnType("Decimal(12, 2)");
+
+                    b.Property<string>("UsuarioRe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdPago");
+
+                    b.HasIndex("IdPrestamo");
+
+                    b.ToTable("Pago");
+                });
+
             modelBuilder.Entity("Credi_Gestion.Models.Prestamo", b =>
                 {
                     b.Property<int>("IdPrestamo")
@@ -112,6 +141,15 @@ namespace Credi_Gestion.Migrations
                     b.HasIndex("IdCliente");
 
                     b.ToTable("Prestamo");
+                });
+
+            modelBuilder.Entity("Credi_Gestion.Models.Pago", b =>
+                {
+                    b.HasOne("Credi_Gestion.Models.Prestamo", "Prestamo")
+                        .WithMany("pagos")
+                        .HasForeignKey("IdPrestamo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Credi_Gestion.Models.Prestamo", b =>
