@@ -17,22 +17,21 @@
                 <th>
                     Prestamo C$
                 </th>
+               
                 <th>
                     Monto Pagado C$
                 </th>
                 <th>
-                    Fecha Pago
+                    Fecha de pago
                 </th>
                 <th>
-                    Saldo C$
+                    Saldo
                 </th>
-            </tr>
-        </thead>
-        <tbody>
-            @{
-                foreach (var item in Model.Pagos)
-                {
-                    <tr>
+                <th>
+                    @{
+                        foreach (var item in Model.Pagos)
+                        {
+<tr>
                         <td>
                             @{
                                 var Prestamo = Model.Prestamos.Where(a => a.IdPrestamo == item.IdPrestamo).FirstOrDefault();

@@ -32,7 +32,7 @@
                     Monto TotaL
                 </th>
                 <th>
-                    Saldo Inicial
+                    Saldo Actual
                 </th>
                 <th>
                     Estado
@@ -70,7 +70,7 @@
                                 @{
                                     if (ClientePrestamo.Estado != "Pagado")
                                     {
-                                        <a class="btn btn-outline-success" asp-action="GuardarPago" asp-route-IdPrestamo="@ClientePrestamo.IdPrestamo" asp-route-IdCliente="@ClientePrestamo.IdCliente">Nuevo Pago</a>
+                                        <a class="btn btn-outline-success" asp-action="NuevoPago" asp-route-IdPrestamo="@ClientePrestamo.IdPrestamo" asp-route-IdCliente="@ClientePrestamo.IdCliente">Nuevo Pago</a>
                                     }
                                 }
                             </td>

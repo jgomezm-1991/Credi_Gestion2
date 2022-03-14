@@ -118,7 +118,23 @@ namespace Credi_Gestion.Controllers
             return RedirectToAction("Prestamos");
         }
 
+        public IActionResult NuevoPago(int IdPrestamo, int IdCliente)
+        {
+            ClientePrestamo clientePrestamo = new ClientePrestamo();
+            clientePrestamo.Prestamos = _context.Prestamo.Where(p => p.IdPrestamo == IdPrestamo).ToList();
+            clientePrestamo.Clientes = _context.Cliente.Where(c => c.IdCliente == IdCliente).ToList();
+            return View(clientePrestamo);
+        }
+        public IActionResult VerPagosPrestamo(int IdCliente, int IdPrestamo)
+        {
+            ClientesPagos clientesPagos = new ClientesPagos();
+            clientesPagos.Clientes = _context.Cliente.Where(c => c.IdCliente == IdCliente).ToList();
+            clientesPagos.Prestamos = _context.Prestamo.Where(pr => pr.IdPrestamo == IdPrestamo).ToList();
+            clientesPagos.Pagos = _context.Pago.Where(pa => pa.IdPrestamo == IdPrestamo).ToList();
 
+
+            return View("Pagos", clientesPagos);
+        }
         public IActionResult Pagos()
         {
             ClientesPagos Pagoscliente = new ClientesPagos();
@@ -134,7 +150,7 @@ namespace Credi_Gestion.Controllers
             pagos.FechaPago = DateTime.Now;
             pagos.UsuarioRe = "Admin";
             pagos.Saldo = prestamo.Saldo - pagos.MontoPagado;
-            _context.Pagos.Add(pagos);
+            _context.Pago.Add(pagos);
 
             Prestamo prestamos = _context.Prestamo.Where(a => a.IdPrestamo == pagos.IdPrestamo).FirstOrDefault();
             prestamos.Saldo = pagos.Saldo;
