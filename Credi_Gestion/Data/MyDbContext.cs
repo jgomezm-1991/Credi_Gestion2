@@ -16,7 +16,15 @@ namespace Credi_Gestion.Data
         public DbSet<Prestamo> Prestamo { get; set; }
         public DbSet<Pago> Pago { get; set; }
 
-        public DbSet<Pago> Pagos { get; set; }
+
+        /* protected override void OnModelCreating(ModelBuilder builder)
+         {
+             builder.Entity<Cliente>().ToTable("Cliente").HasKey(x => x.Id);
+
+             builder.Entity<Cliente>().Property(x => x.NombreCliente).IsRequired();
+
+
+         }*/
 
     }
 }
