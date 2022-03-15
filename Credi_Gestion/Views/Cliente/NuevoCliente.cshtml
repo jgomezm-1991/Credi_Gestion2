@@ -13,14 +13,14 @@
         <div class="col-md-4">
             <div class=" form-inline">
                 <label class="col-form-label" style="width:30%">Nombres:</label>
-                <input class="form-control" style="width:70%" name="NombreCliente" type="text" placeholder="Nombres" />
+                <input class="form-control NombreCliente" style="width:70%" name="NombreCliente" type="text" placeholder="Nombres" />
             </div>
 
         </div>
         <div class="col-md-4">
             <div class=" form-inline">
                 <label class="col-form-label" style="width:30%">Apellidos:</label>
-                <input class="form-control" style="width:70%" id="name" name="Apellidos" type="text" placeholder="Nombres" />
+                <input class="form-control ClienteApellidos" style="width:70%" id="name" name="Apellidos" type="text" placeholder="Nombres" />
             </div>
 
         </div>
@@ -32,13 +32,13 @@
         <div class="col-md-4">
             <div class=" form-inline">
                 <label class="col-form-label" style="width:30%">Cédula:</label>
-                <input class="form-control" style="width:70%" name="Cedula" type="text" placeholder="Número de Identificación" />
+                <input class="form-control ClienteCedula" style="width:70%" name="Cedula" type="text" placeholder="Número de Identificación" />
             </div>
         </div>
         <div class=" col-md-4">
             <div class=" form-inline">
                 <label for="selectGenero" style="width:30%">Género:</label>
-                <select style="width:70%" class="form-control" name="Genero" id="selectGenero">
+                <select style="width:70%" class="form-control clienteGenero" name="Genero" id="selectGenero">
                     <option value="" disabled="" selected="">seleccione</option>
                     <option value="M">Masculino</option>
                     <option value="F">Femenino</option>
@@ -54,7 +54,7 @@
             <div class=" form-inline">
 
                 <label class="col-form-label" style="width:30%">Dirección:</label>
-                <input class="form-control" style="width:70%" name="Direccion" type="text" placeholder="Escriba la Dirección domiciliar" />
+                <input class="form-control ClienteDireccion" style="width:70%" name="Direccion" type="text" placeholder="Escriba la Dirección domiciliar" />
 
             </div>
         </div>
@@ -62,7 +62,7 @@
             <div class=" form-inline">
 
                 <label class="col-form-label" style="width:30%">Teléfono:</label>
-                <input class="form-control" style="width:70%" name="Telefono" type="text" placeholder="Número Teléfono o Convencional" />
+                <input class="form-control ClienteTelefono" style="width:70%" name="Telefono" type="text" placeholder="Número Teléfono o Convencional" />
 
             </div>
 
@@ -76,7 +76,7 @@
             <div class=" form-inline">
 
                 <label for="selectEstado" style="width:30%">Estado:</label>
-                <select class="form-control" style="width:70%" name="Estado" id="selectEstado">
+                <select class="form-control ClienteEstado" style="width:70%" name="Estado" id="selectEstado">
                     <option>Seleccione</option>
                     <option>Activo</option>
                     <option>Inactivo</option>
@@ -94,10 +94,12 @@
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <div>
-                <input style="margin:10px" type="submit" asp-controller="Cliente" asp-action="Clientes" value="Cancelar" class="btn btn-secondary mx-auto float-right">
-                <input style="margin:10px" type="submit" value="Guardar" class="btn btn-success float-right">
+                <input  type="submit" asp-controller="Cliente" asp-action="Clientes" value="Cancelar" class="btn btn-secondary  float-right">
+                @*<input style="margin:10px" type="submit" value="Guardar" class="btn btn-success float-right">*@
+                <a id="btnGuardar" href="javascrip:void(0);" class="btn btn-success ">Guardar</a>
             </div>
         </div>
+
         <div class="col-md-4"></div>
 
     </div>
