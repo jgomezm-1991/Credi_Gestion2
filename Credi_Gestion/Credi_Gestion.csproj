@@ -47,4 +47,9 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\lib\notifIt\js\notifIt.js" />
+    <None Include="wwwroot\lib\notifIt\js\notifIt.min.js" />
+  </ItemGroup>
+
 </Project>

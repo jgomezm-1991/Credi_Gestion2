@@ -1,32 +1,44 @@
-﻿$("#btnguardar").click(function () {
-    var nombrecliente = $(".nombre-cliente").val();
-    var apellidos = $(".apellidos-cliente").val();
-    var cedula = $(".cedula-cliente").val();
-    var direccion = $(".direccion-cliente").val();
-    var telefono = $(".telefono-cliente").val();
-    var sexo = $(".sexo-cliente").val();
+﻿$("#btnGuardar").click(function () {
+    var nombrecliente = $(".NombreCliente").val();
+    var apellidos = $(".ClienteApellidos").val();
+    var cedula = $(".ClienteCedula").val();
+    var generos = $(".ClienteGenero").val();
+    var direccion = $(".ClienteDireccion").val();
+    var telefono = $(".ClienteTelefono").val();
+    var estado = $(".ClienteEstado").val();
 
-    if (nombrecliente == "" || apellidos == "" || cedula == "" || direccion == "" || telefono == "" || sexo == "") {
-        Swal.fire({
-            position: 'top-end',
-            icon: 'error',
-            title: 'Todos los Campos son requeridos',
-            showConfirmButton: false,
-            timer: 1500
-        })
+
+    if (nombrecliente == "" || apellidos == "" || cedula == "" || generos == "" || direccion == "" || telefono == "" || estado=="") {
+        //Swal.fire({
+        //    position: 'top-end',
+        //    icon: 'error',
+        //    title: 'Todos los Campos son requeridos',
+        //    showConfirmButton: false,
+        //    timer: 1500
+        //})
+
+        notif({
+
+            msg: "Todos los campos son requeridos",
+
+            type: "success"
+
+        });
+
         return;
     }
     else {
         var xhr = $.ajax({
-            url: "RegistrarClienteNew",
+            url: "NuevosCliente",
             type: "POST",
             data: {
-                "Nombres": nombrecliente,
+                "NombreCliente": nombrecliente,
                 "Apellidos": apellidos,
                 "Cedula": cedula,
                 "Direccion": direccion,
                 "Telefono": telefono,
-                "Sexo": sexo
+                "Genero": generos,
+                "Estado": estado
             }
         });
         xhr.done(function (data) {
@@ -38,12 +50,14 @@
                 timer: 1500
             })
             //alert("Datos guardados correctamente");
-            $(".nombre-cliente").val("");
-            $(".apellidos-cliente").val("");
-            $(".cedula-cliente").val("");
-            $(".direccion-cliente").val("");
-            $(".telefono-cliente").val("");
-            $(".sexo-cliente").val("");
+            $(".NombreCliente").val("");
+            $(".ClienteApellidos").val("");
+            $(".ClienteCedula").val("");
+            $(".ClienteDireccion").val("");
+            $(".ClienteTelefono").val("");
+            $("ClienteGenero").val("");
+            $("ClienteEstado").val("");
+
         });
         xhr.fail(function () {
             Swal.fire({
