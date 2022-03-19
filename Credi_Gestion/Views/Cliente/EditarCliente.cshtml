@@ -13,14 +13,14 @@
         <div class="col-md-4">
             <div class=" form-inline">
                 <label class="col-form-label" style="width:30%">Nombres:</label>
-                <input class="form-control" style="width:70%" name="NombreCliente" type="text" value="@Model.NombreCliente" placeholder="Nombres" />
+                <input class="form-control EditarNombreCliente" style="width:70%" name="NombreCliente" type="text" value="@Model.NombreCliente" placeholder="Nombres" />
             </div>
 
         </div>
         <div class="col-md-4">
             <div class=" form-inline">
                 <label class="col-form-label" style="width:30%">Apellidos:</label>
-                <input class="form-control" name="Apellidos" style="width:70%" type="text" value="@Model.Apellidos" placeholder="Nombres" />
+                <input class="form-control EditarApellidos" name="Apellidos" style="width:70%" type="text" value="@Model.Apellidos" placeholder="Nombres" />
             </div>
 
         </div>
@@ -32,14 +32,14 @@
         <div class="col-md-4">
             <div class=" form-inline">
                 <label class="col-form-label" style="width:30%">Cédula:</label>
-                <input class="form-control" style="width:70%" name="Cedula" type="text" value="@Model.Cedula" placeholder="Número de Identificación" />
+                <input class="form-control EditarCedula" style="width:70%" name="Cedula" type="text" value="@Model.Cedula" placeholder="Número de Identificación" />
             </div>
         </div>
         <div class=" col-md-4">
             <div class=" form-inline">
 
                 <label for="selectGenero" style="width:30%">Género:</label>
-                <select class="form-control" name="Genero" style="width:70%" id="selectGenero">
+                <select class="form-control EditarGeneros" name="Genero" style="width:70%" id="selectGenero">
                     @{
                         if (Model.Genero == "M")
                         {
@@ -66,7 +66,7 @@
             <div class=" form-inline">
 
                 <label class="col-form-label" style="width:30%">Dirección:</label>
-                <input class="form-control" style="width:70%" name="Direccion" type="text" value="@Model.Direccion" placeholder="Escriba la Dirección domiciliar" />
+                <input class="form-control EditarDireccion" style="width:70%" name="Direccion" type="text" value="@Model.Direccion" placeholder="Escriba la Dirección domiciliar" />
 
             </div>
         </div>
@@ -74,7 +74,7 @@
             <div class=" form-inline">
 
                 <label class="col-form-label" style="width:30%">Teléfono:</label>
-                <input class="form-control" style="width:70%" name="Telefono" type="text" value="@Model.Telefono" placeholder="Número Teléfono o Convencional" />
+                <input class="form-control EditarTelefono" style="width:70%" name="Telefono" type="text" value="@Model.Telefono" placeholder="Número Teléfono o Convencional" />
 
             </div>
 
@@ -90,7 +90,7 @@
             <div class=" form-inline">
 
                 <label for="selectEstado" style="width:30%">Estado:</label>
-                <select class="form-control" name="Estado" style="width:70%" id="selectEstado">
+                <select class="form-control EditarEstado"  name="Estado" style="width:70%" id="selectEstado">
                     @{
                         if (Model.Estado == "Activo")
                         {
@@ -114,8 +114,9 @@
         <div class="col-md-4">
             <div>
                 <input style="margin:10px" type="submit" asp-controller="Cliente" asp-action="Clientes" value="Cancelar" class="btn btn-secondary mx-auto float-right">
+                <a id="btnEditar" href="javascrip:void(0);" class="btn btn-success ">Actualizar</a>
 
-                <input type="submit" style="margin:10px" value="Actualizar" class="btn btn-success float-lg-right" />
+                @*<input type="submit" style="margin:10px" value="Actualizar" class="btn btn-success float-lg-right" />*@
             </div>
 
         </div>
@@ -125,4 +126,7 @@
     <input type="hidden" name="IdCliente" value=@Model.IdCliente />
 
 </form>
+@section Scripts {
+    <script src="~/js/EditarCliente.js"></script>
+}
 <br />

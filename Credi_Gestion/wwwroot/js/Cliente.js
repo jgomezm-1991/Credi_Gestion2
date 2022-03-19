@@ -9,19 +9,13 @@
 
 
     if (nombrecliente == "" || apellidos == "" || cedula == "" || generos == "" || direccion == "" || telefono == "" || estado=="") {
-        //Swal.fire({
-        //    position: 'top-end',
-        //    icon: 'error',
-        //    title: 'Todos los Campos son requeridos',
-        //    showConfirmButton: false,
-        //    timer: 1500
-        //})
+     
 
         notif({
 
             msg: "Todos los campos son requeridos",
 
-            type: "success"
+            type: "error"
 
         });
 
@@ -40,15 +34,28 @@
                 "Genero": generos,
                 "Estado": estado
             }
+
+                       
+
         });
         xhr.done(function (data) {
-            Swal.fire({
-                position: 'top-end',
-                icon: 'succes',
-                title: 'Datos Guardados Correctamente',
-                showConfirmButton: false,
-                timer: 1500
-            })
+
+
+
+            notif({
+
+                msg: "Datos guardados Exitosamente",
+                
+                type: "success"
+                 
+            });
+            //Swal.fire({
+            //    position: 'top-end',
+            //    icon: 'succes',
+            //    title: 'Datos Guardados Correctamente',
+            //    showConfirmButton: false,
+            //    timer: 1500
+            //})
             //alert("Datos guardados correctamente");
             $(".NombreCliente").val("");
             $(".ClienteApellidos").val("");
