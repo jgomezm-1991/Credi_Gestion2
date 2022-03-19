@@ -1,4 +1,5 @@
 ﻿$("#btnEditar").click(function () {
+    var EditarId = $(".EditarID").val();
     var EditarNombreclientes= $(".EditarNombreCliente").val();
     var Editarapellidos = $(".EditarApellidos").val();
     var Editarcedula = $(".EditarCedula").val();
@@ -16,7 +17,7 @@
             msg: "Todos los campos son requeridos",
 
             type: "error"
-
+            
         });
 
         return;
@@ -26,6 +27,7 @@
             url: "EditarValorCliente",
             type: "POST",
             data: {
+                "IdCliente": EditarId,
                 "NombreCliente": EditarNombreclientes,
                 "Apellidos": Editarapellidos,
                 "Cedula": Editarcedula,
@@ -44,26 +46,17 @@
 
             notif({
 
-                msg: "Datos guardados Exitosamente",
+                msg: "Datos actualizados Exitosamente",
 
                 type: "success"
-
             });
-            //Swal.fire({
-            //    position: 'top-end',
-            //    icon: 'succes',
-            //    title: 'Datos Guardados Correctamente',
-            //    showConfirmButton: false,
-            //    timer: 1500
-            //})
-            //alert("Datos guardados correctamente");
-            //$(".NombreCliente").val("");
-            //$(".ClienteApellidos").val("");
-            //$(".ClienteCedula").val("");
-            //$(".ClienteDireccion").val("");
-            //$(".ClienteTelefono").val("");
-            //$("ClienteGenero").val("");
-            //$("ClienteEstado").val("");
+
+
+            setTimeout(function () {
+                location.href = "../Cliente/Clientes"
+            }, 500)
+
+            
 
         });
         xhr.fail(function () {
