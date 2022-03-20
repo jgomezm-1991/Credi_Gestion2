@@ -1,12 +1,12 @@
 ﻿$("#btnGuardar").click(function () {
 
-    var Cliente = $(".cliente").val();
+    var IdCliente= $(".cliente").val();
     var Monto = $(".monto").val();
     var Moneda = $(".moneda").val();
     var Interes = $(".interes").val();
     var Plazo = $(".plazo").val();
 
-    if (Cliente == "" || Monto == "" || Moneda == "" || Interes == "" || Plazo == "") {
+    if (IdCliente == "" || Monto == "" || Moneda == "" || Interes == "" || Plazo == "") {
         notif({
 
             msg: "Todos los campos son requeridos",
@@ -23,7 +23,7 @@
             url: "GuardarPrestamo",
             type: "POST",
             data: {
-                "Cliente": Cliente,
+                "IdCliente": IdCliente,
                 "Monto": Monto,
                 "Moneda": Moneda,
                 "Interes": Interes,
