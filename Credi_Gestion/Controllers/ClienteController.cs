@@ -115,7 +115,7 @@ namespace Credi_Gestion.Controllers
             prestamo.UsuarioRe = "Admin";
             _context.Prestamo.Add(prestamo);
             _context.SaveChanges();
-            return RedirectToAction("Prestamos");
+           return RedirectToAction("Prestamos");
         }
 
         public IActionResult NuevoPago(int IdPrestamo, int IdCliente)
