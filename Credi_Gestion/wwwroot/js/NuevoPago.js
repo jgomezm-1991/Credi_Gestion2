@@ -1,11 +1,9 @@
 ﻿$("#btnGuardaC").click(function () {
-    var id
-    var IDCLIENTE = $(".Idcliente").val();
-    var IDPRESTAMO = $(".IdPrestamo").val();
+    var IDPRESTAMO = $("#IdPrestamo").val();
     var Montopagado = $(".Montopagado").val();
-    var saldo = $ (".SALDO").val();
+    var saldo = $(".SALDO").val();
 
-    if (Montopagado == "" || IDPRESTAMO == "" || IDCLIENTE == "" || saldo=="") {
+    if (Montopagado == "" || IDPRESTAMO == "" || saldo == "") {
 
 
         notif({
@@ -18,21 +16,32 @@
 
         return;
     }
-    else
-    {
-        var xhr = $.ajax({
-            url: "GuardarPago",
-            type: "POST",
-            data: {
-                "IdPrestamo": IDPRESTAMO,
-                "IdCliente": IDCLIENTE,
-                "Montopagado": Montopagado,
-                "Saldo": saldo
-            }
+    else if (Montopagado > saldo)
+         {
+
+             notif({
+
+                msg: "El monto a pagar no puede ser mayor que el saldo de la cuenta",
+
+                 type: "error"
+
+             });
+
+        return;
+    }
+    else {
+                var xhr = $.ajax({
+                      url: "GuardarPago",
+                     type: "POST",
+                  data: {
+                    "IdPrestamo": IDPRESTAMO,
+                    "MontoPagado": Montopagado,
+                    "Saldo": saldo
+                  }
 
 
 
-        });
+                });
         xhr.done(function (data) {
 
 

@@ -24,15 +24,10 @@
             foreach (var prestamo in Model.Prestamos)
             {
                 <input class="form-control" type="text" value="@prestamo.Saldo" placeholder="Monto" />
-
+                <input type="hidden" Id="IdPrestamo" value="@prestamo.IdPrestamo" />
             }
 
-            foreach (var pagos in Model.Prestamos)
-            {
-                <input type="hidden" name="IdPrestamo" value="@Prestamo." />
-                <input class="form-control" type="hidden" name="IdPago" value="@Model." />
-
-            }
+           
         }
 
 
