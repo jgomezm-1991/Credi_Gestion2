@@ -24,7 +24,14 @@
             foreach (var prestamo in Model.Prestamos)
             {
                 <input class="form-control" type="text" value="@prestamo.Saldo" placeholder="Monto" />
-                <input type="hidden" name="IdPrestamo" value="@prestamo.IdPrestamo" />
+
+            }
+
+            foreach (var pagos in Model.Prestamos)
+            {
+                <input type="hidden" name="IdPrestamo" value="@Prestamo." />
+                <input class="form-control" type="hidden" name="IdPago" value="@Model." />
+
             }
         }
 
@@ -36,9 +43,10 @@
         @{
             foreach (var prestamo in Model.Prestamos)
             {
-                <input class="form-control" type="text" value="@prestamo.Saldo" name="Saldo" placeholder="Saldo" />
+                <input class="form-control SALDO" type="text" value="@prestamo.Saldo" name="Saldo" placeholder="Saldo" />
             }
         }
+
 
     </div>
 
@@ -50,7 +58,7 @@
 
     </div>
     <div>
-        <a id="btnGuardar" href="javascrip:void(0);" class="btn btn-success">Guardar</a>
+        <a id="btnGuardaC" href="javascrip:void(0);" class="btn btn-success">Guardar</a>
         <input style="margin:10px" type="submit" asp-controller="Cliente" asp-action="Pagos" value="Cancelar" class="btn btn-secondary mx-auto">
     </div>
 

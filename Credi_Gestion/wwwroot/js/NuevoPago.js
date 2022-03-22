@@ -1,10 +1,11 @@
-﻿$("btnGuardar").click(function () {
+﻿$("#btnGuardaC").click(function () {
+    var id
     var IDCLIENTE = $(".Idcliente").val();
     var IDPRESTAMO = $(".IdPrestamo").val();
     var Montopagado = $(".Montopagado").val();
+    var saldo = $ (".SALDO").val();
 
-
-    if (Montopagado == "" || IDPRESTAMO == "" || IDCLIENTE == "") {
+    if (Montopagado == "" || IDPRESTAMO == "" || IDCLIENTE == "" || saldo=="") {
 
 
         notif({
@@ -17,14 +18,16 @@
 
         return;
     }
-    else {
+    else
+    {
         var xhr = $.ajax({
             url: "GuardarPago",
             type: "POST",
             data: {
                 "IdPrestamo": IDPRESTAMO,
                 "IdCliente": IDCLIENTE,
-                "Montopagado": Montopagado
+                "Montopagado": Montopagado,
+                "Saldo": saldo
             }
 
 
