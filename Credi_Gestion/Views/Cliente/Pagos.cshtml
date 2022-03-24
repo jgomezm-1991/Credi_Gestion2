@@ -6,7 +6,76 @@
 <div class="alert-dark">
     <h1 class="text-center table-bordered">Lista de abonos ala deuda</h1>
 </div>
-<div class="table-responsive" style="overflow-y:scroll;height:530px">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: aquamarine;
+        height: 100vh;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    #buscar {
+        background-image: url('/css/searchicon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid rgb(255 255 255 / 90%);
+        margin-bottom: 12px;
+    }
+
+    #Pagos {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+        font-size: 18px;
+    }
+
+        #Pagos th, #Pagos td {
+            text-align: left;
+            padding: 12px;
+        }
+
+        #Pagos tr.header_fijo {
+            border-bottom: 0px solid #ddd;
+        }
+
+        #Pagos tr.header_fijo, #Pagos tr:hover {
+            background-color: #f1f1f1;
+        }
+
+    thead tr th {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: #ffffff;
+    }
+
+    .inner-addon {
+        position: relative;
+    }
+
+        .inner-addon .glyphicon {
+            position: absolute;
+            padding: 10px;
+            pointer-events: none;
+        }
+
+    .left-addon .glyphicon {
+        left: 0px;
+    }
+
+
+    .left-addon input {
+        padding-left: 30px;
+    }
+</style>
+<div class="table-responsive">
     <table id="Pagos" class="table table-bordered header_fijo" style="background-color:lightblue " overflow="scroll">
 
         <thead class="thead-dark" id="tableheader">
@@ -56,3 +125,32 @@
         <a class="btn btn-outline-danger" asp-controller="Cliente" asp-action="Prestamos">Regresar</a>
     </div>
 </div>
+@section Scripts{
+    <script>
+        $('#Pagos').DataTable();
+
+                    //function searchTable() {
+                    //    var input, filter, table, tr, td, i;
+                    //    input = document.getElementById("buscar");
+                    //    filter = input.value.toUpperCase();
+                    //    table = document.getElementById("Clientes");
+                    //    tr = table.getElementsByTagName("tr");
+                    //    for (i = 0; i < tr.length; i++) {
+                    //        td = tr[i].getElementsByTagName("td");
+                    //        for (j = 0; j < td.length; j++) {
+                    //            let tdata = td[j];
+                    //            if (tdata) {
+                    //                if (tdata.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    //                    tr[i].style.display = "";
+                    //                    break;
+                    //                } else {
+                    //                    tr[i].style.display = "none";
+                    //                }
+                    //            }
+                    //        }
+                    //    }
+                    //}
+    </script>
+}
+
+

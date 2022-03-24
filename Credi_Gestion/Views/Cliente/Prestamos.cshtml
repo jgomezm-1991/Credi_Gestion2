@@ -1,14 +1,83 @@
 ﻿@model Credi_Gestion.Models.ClientePrestamo
 
-@{ 
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="alert-dark">
-    <h1 class="text-center table-bordered" >
+    <h1 class="text-center table-bordered">
         Listados de Prestamos
     </h1>
 </div>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: aquamarine;
+        height: 100vh;
+    }
+   * {
+        box-sizing: border-box;
+    }
+
+    #buscar {
+        background-image: url('/css/searchicon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid rgb(255 255 255 / 90%);
+        margin-bottom: 12px;
+    }
+
+    #Prestamo {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+        font-size: 18px;
+    }
+
+        #Prestamo th, #Prestamo td {
+            text-align: left;
+            padding: 12px;
+        }
+
+        #Prestamo tr.header_fijo {
+            border-bottom: 0px solid #ddd;
+        }
+
+        #Prestamo tr.header_fijo, #Prestamo tr:hover {
+            background-color: #f1f1f1;
+        }
+
+    thead tr th {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: #ffffff;
+    }
+
+    .inner-addon {
+        position: relative;
+    }
+
+        .inner-addon .glyphicon {
+            position: absolute;
+            padding: 10px;
+            pointer-events: none;
+        }
+
+    .left-addon .glyphicon {
+        left: 0px;
+    }
+
+
+    .left-addon input {
+        padding-left: 30px;
+    }
+    }
+</style>
 <div class="table-responsive">
     <table id="Prestamo" class="table table-bordered header_fijo" style="background-color:aqua" overFlow="scroll">
         <thead class="thead-dark" id="tableheader">
@@ -37,7 +106,7 @@
                 <th>
                     Estado
                 </th>
-                <th>
+                <th style="width:22%">
                     Opciones
                 </th>
 
@@ -47,46 +116,55 @@
             @{
                 foreach (var ClientePrestamo in Model.Prestamos)
                 {
-                        <tr>
-                            <td>
-                                @{
-                                    var cliente = Model.Clientes.Where(a => a.IdCliente == ClientePrestamo.IdCliente).FirstOrDefault();
+                    <tr>
+                        <td>
+                            @{
+                                var cliente = Model.Clientes.Where(a => a.IdCliente == ClientePrestamo.IdCliente).FirstOrDefault();
 
-                                    <span>@(cliente.NombreCliente + " " + cliente.Apellidos)</span>
+                                <span>@(cliente.NombreCliente + " " + cliente.Apellidos)</span>
+                            }
+                        </td>
+
+                        <td>@ClientePrestamo.Monto</td>
+                        <td>@ClientePrestamo.Moneda</td>
+                        <td>@ClientePrestamo.Plazo</td>
+                        <td>@ClientePrestamo.interes</td>
+                        <td>@ClientePrestamo.MontoTotal</td>
+                        <td>@ClientePrestamo.Saldo </td>
+                        <td>@ClientePrestamo.Estado</td>
+
+
+                        <td>
+                            <a class="btn btn-success" asp-action="VerPagosPrestamo" asp-route-IdPrestamo="@ClientePrestamo.IdPrestamo" asp-route-IdCliente="@ClientePrestamo.IdCliente">Ver Pagos</a>
+                            @{
+                                if (ClientePrestamo.Estado != "Pagado")
+                                {
+                                    <a class="btn btn-outline-success" asp-action="NuevoPago" asp-route-IdPrestamo="@ClientePrestamo.IdPrestamo" asp-route-IdCliente="@ClientePrestamo.IdCliente">Nuevo Pago</a>
                                 }
-                            </td>
-
-                            <td>@ClientePrestamo.Monto</td>
-                            <td>@ClientePrestamo.Moneda</td>
-                            <td>@ClientePrestamo.Plazo</td>
-                            <td>@ClientePrestamo.interes</td>
-                            <td>@ClientePrestamo.MontoTotal</td>
-                            <td>@ClientePrestamo.Saldo </td>
-                            <td>@ClientePrestamo.Estado</td>
+                            }
+                        </td>
 
 
-                            <td>
-                                <a class="btn btn-success" asp-action="VerPagosPrestamo" asp-route-IdPrestamo="@ClientePrestamo.IdPrestamo" asp-route-IdCliente="@ClientePrestamo.IdCliente">Ver Pagos</a>
-                                @{
-                                    if (ClientePrestamo.Estado != "Pagado")
-                                    {
-                                        <a class="btn btn-outline-success" asp-action="NuevoPago" asp-route-IdPrestamo="@ClientePrestamo.IdPrestamo" asp-route-IdCliente="@ClientePrestamo.IdCliente">Nuevo Pago</a>
-                                    }
-                                }
-                            </td>
-
-
-                        </tr>
+                    </tr>
 
 
                 }
             }
         </tbody>
 
-        </table>
+    </table>
     <div>
-        
+
         <a class="btn  btn-outline-success" asp-controller="Cliente" asp-action="CrearPrestamo">Nuevo Prestamo</a>
+        <a class="btn btn-outline-danger" asp-controller="HOME" asp-action="Index">Regresar</a>
 
     </div>
 </div>
+@section Scripts{
+    <script>
+        $('#Prestamo').DataTable();
+
+                 
+    </script>
+}
+

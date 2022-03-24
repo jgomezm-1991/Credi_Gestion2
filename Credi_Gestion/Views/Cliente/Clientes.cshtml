@@ -8,15 +8,21 @@
 <div class="alert-dark">
     <h1 class="text-center table-bordered ">Listado de Clientes</h1>
 </div>
-<td colspan="6">
-    @*<input id="buscar" type="text" onkeyup="searchTable()" class="form-control" placeholder="Buscar Clientes" />*@
-    <div class="inner-addon right-addon">
-        @*<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">*@
-        <i class="glyphicon glyphicon-search"></i>
+<!--<td colspan="6">-->
+@*<input id="buscar" type="text" onkeyup="searchTable()" class="form-control" placeholder="Buscar Clientes" />*@
+<!--<div class="inner-addon right-addon">-->
+<!--<i class="glyphicon glyphicon-search"></i>
         <input id="buscar" type="text" onkeyup="searchTable()" class="form-control" placeholder="Escribe un nombre">
     </div>
-</td>
+</td>-->
 <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color:aquamarine;
+        height: 100vh;
+    }
+
     * {
         box-sizing: border-box;
     }
@@ -28,7 +34,7 @@
         width: 100%;
         font-size: 16px;
         padding: 12px 20px 12px 40px;
-        border: 1px solid #ddd;
+        border: 1px solid rgb(255 255 255 / 90%);
         margin-bottom: 12px;
     }
 
@@ -45,7 +51,7 @@
         }
 
         #Clientes tr.header_fijo {
-            border-bottom: 1px solid #ddd;
+            border-bottom: 0px solid #ddd;
         }
 
         #Clientes tr.header_fijo, #Clientes tr:hover {
@@ -87,7 +93,7 @@
                 <th>
                     Nombre completo
                 </th>
-             
+
                 <th>
                     Cédula
                 </th>
@@ -97,21 +103,19 @@
                 <th>
                     Dirección
                 </th>
-               
+
                 <th>
                     Fecha
                 </th>
-                <th>
+                <th >
                     Estado
                 </th>
-                 <th>
+                <th width="30%">
                     Opciones
                 </th>
 
 
-                @*<th>
-            Deuda
-        </th>*@
+               
             </tr>
         </thead>
         @*<script language="JavaScript" src="buscartabla/site.js"</script>*@
@@ -121,53 +125,68 @@
                 foreach (var Cliente in Model)
                 {
                         <tr>
-                            <td>@Cliente.NombreCliente @Cliente.Apellidos</td>                            
+
+
+                            <td>
+                                @{
+                                    <span>@(Cliente.NombreCliente + " " + Cliente.Apellidos)</span>
+                                }
+
+                            </td>
                             <td>@Cliente.Cedula</td>
                             <td>@Cliente.Genero</td>
                             <td>@Cliente.Direccion</td>
                             <td>@Cliente.FechaReg.ToShortDateString()</td>
                             <td>@Cliente.Estado</td>
                             <td>
+
+
+                                <a class="btn btn-success"  asp-action="AgregarPrestamo" asp-route-IdCliente="@Cliente.IdCliente">Nuevo Préstamo</a>                    
                                 <a class="btn btn-info" asp-action="EditarCliente" asp-route-IdCliente="@Cliente.IdCliente">Editar</a>
-                                <a class="btn btn-info" asp-action="EliminarCliente" asp-route-IdCliente="@Cliente.IdCliente">Eliminar</a>
-                                <a class="btn btn-success" asp-action="AgregarPrestamo" asp-route-IdCliente="@Cliente.IdCliente">Nuevo Préstamo</a>
+                                <a id="eliminarcliente" class="btn btn-danger" asp-action="EliminarCliente" asp-route-IdCliente="@Cliente.IdCliente">Eliminar</a>
 
                             </td>
-                           
+
                         </tr>
                 }
             }
         </tbody>
     </table>
-    <script>
-        function searchTable() {
-            var input, filter, table, tr, td, i;
-            input = document.getElementById("buscar");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("Clientes");
-            tr = table.getElementsByTagName("tr");
-
-            // Loop through all table rows, and hide those who don't match the search query
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td");
-                for (j = 0; j < td.length; j++) {
-                    let tdata = td[j];
-                    if (tdata) {
-                        if (tdata.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                            tr[i].style.display = "";
-                            break;
-                        } else {
-                            tr[i].style.display = "none";
-                        }
-                    }
-                }
-            }
-        }
-    </script>
 </div>
 <h1></h1>
-
 <div>
     <a class="btn btn-success" asp-controller="Cliente" asp-action="NuevoCliente">Registrar Nuevo</a>
+    <a class="btn btn-outline-danger" asp-controller="HOME" asp-action="Index">Regresar</a>
+
 </div>
+@section Scripts{
+         <script>
+        $('#Clientes').DataTable();
+
+                //function searchTable() {
+                //    var input, filter, table, tr, td, i;
+                //    input = document.getElementById("buscar");
+                //    filter = input.value.toUpperCase();
+                //    table = document.getElementById("Clientes");
+                //    tr = table.getElementsByTagName("tr");
+                //    for (i = 0; i < tr.length; i++) {
+                //        td = tr[i].getElementsByTagName("td");
+                //        for (j = 0; j < td.length; j++) {
+                //            let tdata = td[j];
+                //            if (tdata) {
+                //                if (tdata.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                //                    tr[i].style.display = "";
+                //                    break;
+                //                } else {
+                //                    tr[i].style.display = "none";
+                //                }
+                //            }
+                //        }
+                //    }
+                //}
+        </script>
+    }
+
+
+
 

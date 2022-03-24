@@ -3,12 +3,20 @@
 
 
 <form asp-action="NuevosCliente" style="text-align:center">
-   
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: aquamarine;
+            height: 100vh;
+        }
+    </style>
+
     <div class="panel panel-default">
 
         <div class="panel-heading" style="color:darkcyan">INFORMACION DEL NUEVO CLIENTE</div>
-        
-        
+
+
         <div class="panel-Body">
 
             <br />
@@ -98,7 +106,7 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <div>
-                        <input type="submit" asp-controller="Cliente" asp-action="Clientes" value="Cancelar" class="btn btn-secondary  float-right">
+                        <input type="submit" asp-controller="Cliente" asp-action="Clientes" value="Cancelar" class="btn btn-secondary">
                         @*<input style="margin:10px" type="submit" value="Guardar" class="btn btn-success float-right">*@
                         <a id="btnGuardar" href="javascrip:void(0);" class="btn btn-success ">Guardar</a>
                     </div>
@@ -109,9 +117,9 @@
             </div>
 
         </div>
-           
+
     </div>
-    
+
 </form>
 @section Scripts {
     <script src="~/js/Cliente.js"></script>

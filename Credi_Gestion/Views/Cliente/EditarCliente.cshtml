@@ -5,6 +5,14 @@
 <div style="color:cadetblue">
     <h1 class="text-center">Editar Cliente</h1>
 </div>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: aquamarine;
+        height: 100vh;
+    }
+    </style>
 <form asp-action="EditarValorCliente" style="text-align:center">
     <br />
     <div class="row">
@@ -115,7 +123,7 @@
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <div>
-                <input style="margin:10px" type="submit" asp-controller="Cliente" asp-action="Clientes" value="Cancelar" class="btn btn-secondary mx-auto float-right">
+                <input type="submit" asp-controller="Cliente" asp-action="Clientes" value="Cancelar" class="btn btn-secondary ">
                 <a id="btnEditar" href="javascrip:void(0);" class="btn btn-success ">Actualizar</a>
 
                 @*<input type="submit" style="margin:10px" value="Actualizar" class="btn btn-success float-lg-right" />*@

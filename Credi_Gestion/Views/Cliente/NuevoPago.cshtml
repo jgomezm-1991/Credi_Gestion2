@@ -1,6 +1,76 @@
 ﻿@model Credi_Gestion.Models.ClientePrestamo
 
 <h1 style="font-family:Constantia;font-size:xx-large ;color:lightgreen;text-align:justify">ingresar nuevo pago</h1>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: aquamarine;
+        height: 100vh;
+    }
+    * {
+        box-sizing: border-box;
+    }
+
+    #buscar {
+        background-image: url('/css/searchicon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid rgb(255 255 255 / 90%);
+        margin-bottom: 12px;
+    }
+
+    #Prestamo {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+        font-size: 18px;
+    }
+
+        #Prestamo th, #Prestamo td {
+            text-align: left;
+            padding: 12px;
+        }
+
+        #Prestamo tr.header_fijo {
+            border-bottom: 0px solid #ddd;
+        }
+
+        #Prestamo tr.header_fijo, #Prestamo tr:hover {
+            background-color: #f1f1f1;
+        }
+
+    thead tr th {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: #ffffff;
+    }
+
+    .inner-addon {
+        position: relative;
+    }
+
+        .inner-addon .glyphicon {
+            position: absolute;
+            padding: 10px;
+            pointer-events: none;
+        }
+
+    .left-addon .glyphicon {
+        left: 0px;
+    }
+
+
+    .left-addon input {
+        padding-left: 30px;
+    }
+
+    }
+</style>
 <form asp-action="GuardarPago" style="font-family:Constantia" ; font-size:large; color:lightseagreen">
 
     <div class="col-sm-6">
