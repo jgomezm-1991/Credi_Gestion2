@@ -4,7 +4,7 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 style="text-align:center">@ViewData["Title"]</h1>
 <style>
     body {
         margin: 0;
@@ -31,10 +31,10 @@
 </style>
 <body>
     <div class="row">
+        <div class="col-md-4"></div>
         <div class="col-md-4">
             <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
 
-                <h4>Register new user</h4>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
