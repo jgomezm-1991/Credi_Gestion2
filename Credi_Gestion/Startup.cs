@@ -41,6 +41,8 @@ namespace Credi_Gestion
             
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+
             services.AddAuthorization(options =>
             {
                 options.FallbackPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();

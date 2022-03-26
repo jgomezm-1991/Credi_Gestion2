@@ -60,11 +60,11 @@
             //    timer: 1500
             //})
             //alert("Datos guardados correctamente");
-            $(".cliente").val("");
-            $(".monto").val("");
-            $(".moneda").val("");
-            $(".interes").val("");
-            $(".plazo").val("");
+            //$(".cliente").val("");
+            //$(".monto").val("");
+            //$(".moneda").val("");
+            //$(".interes").val("");
+            //$(".plazo").val("");
 
 
 

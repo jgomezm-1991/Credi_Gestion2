@@ -49,6 +49,9 @@
                 type: "success"
                  
             });
+            setTimeout(function () {
+                location.href = "../Cliente/Clientes"
+            }, 600)
             //Swal.fire({
             //    position: 'top-end',
             //    icon: 'succes',
@@ -57,14 +60,16 @@
             //    timer: 1500
             //})
             //alert("Datos guardados correctamente");
-            $(".NombreCliente").val("");
-            $(".ClienteApellidos").val("");
-            $(".ClienteCedula").val("");
-            $(".ClienteDireccion").val("");
-            $(".ClienteTelefono").val("");
-            $("ClienteGenero").val("");
-            $("ClienteEstado").val("");
 
+            ////$(".NombreCliente").val("");
+            ////$(".ClienteApellidos").val("");
+            ////$(".ClienteCedula").val("");
+            ////$(".ClienteDireccion").val("");
+            ////$(".ClienteTelefono").val("");
+            ////$("ClienteGenero").val("");
+            ////$("ClienteEstado").val("");
+
+        
         });
         xhr.fail(function () {
             Swal.fire({
